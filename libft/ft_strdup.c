@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 18:43:52 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/13 12:10:54 by ygille           ###   ########.fr       */
+/*   Created: 2024/11/13 14:27:04 by ygille            #+#    #+#             */
+/*   Updated: 2024/11/13 14:36:31 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+char	*ft_strdup(const char *s)
 {
-	size_t	i;
-	size_t	j;
+	char	*dup;
+	size_t	size;
 
-	i = 0;
-	j = 0;
-	while (dst[i] && i < size)
-		i++;
-	if (i == size)
-		return (i + ft_strlen(src));
-	while (src[j] && i + j < size - 1)
-	{
-		dst[i + j] = src[j];
-		j++;
-	}
-	dst[i + j] = '\0';
-	return (i + ft_strlen(src));
+	size = ft_strlen(s) + 1;
+	dup = malloc(sizeof(char) * size);
+	if (dup == NULL)
+		return (NULL);
+	ft_strlcpy(dup, s, size);
+	return (dup);
 }

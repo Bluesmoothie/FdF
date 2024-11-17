@@ -15,7 +15,8 @@ CC			=	gcc
 INCLUDE 	=	includes
 CFLAGS		=	-Wall -Wextra -Werror -I$(INCLUDE)
 RM			=	rm -f
-SRC_FILES	=	fdf
+SRC_FILES	=	fdf \
+				user_input
 
 all:			$(NAME)
 
