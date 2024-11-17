@@ -6,18 +6,21 @@ LIBFT_A		=	$(addprefix $(LIBFT), libft.a)
 GNL_A		=	$(addprefix $(GNL), libgnl.a)
 MLX_A		=	$(addprefix $(MLX), libmlx.a)
 
+SRC 		= 	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
+OBJ 		= 	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
+SRC_DIR		=	src/
+OBJ_DIR		=	obj/
+
 CC			=	gcc
 INCLUDE 	=	includes
 CFLAGS		=	-Wall -Wextra -Werror -I$(INCLUDE)
 RM			=	rm -f
-SRCS		=	
-
-OBJS		=	$(SRCS:%.c=%.o)
+SRC_FILES	=	
 
 all:			$(NAME)
 
 $(NAME):		$(OBJS) $(LIBFT_A) $(GNL_A) $(MLX_A)
-				$(CC) $(CFLAGS) $(OBJS) -L$(LIBFT) -lft -L$(GNL) -lgnl -L$(MLX) -lmlx -lm -o $(NAME)
+				$(CC) $(CFLAGS) $(OBJ) -L$(LIBFT) -lft -L$(GNL) -lgnl -L$(MLX) -lmlx -lm -o $(NAME)
 
 $(LIBFT_A):
 				@$(MAKE) -s -C $(LIBFT)
