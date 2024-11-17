@@ -6,34 +6,26 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:51 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/17 18:49:39 by ygille           ###   ########.fr       */
+/*   Updated: 2024/11/17 19:55:19 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-int	main(void)
+int	main(int argc, char *argv[])
 {
-	window();
+	t_mlx	*mlx;
+	t_map	*map;
+
+	if (argc != 2)
+		error(-1);
+	map = retrieve_map(argv[1]);
+	(void) map;
+	mlx = open_window();
+	mlx_key_hook(mlx->win, &key_hook, 0);
+	mlx_loop(mlx->id);
+	free(mlx);
 	exit(EXIT_SUCCESS);
-}
-
-t_mlx	window(void)
-{
-	t_mlx	mlx;
-
-	mlx = mallox(sizeof(t_mlx));
-	if (mlx == NULL)
-		error(EMALLOC);
-	mlx->mlx = mlx_init();
-	if (mlx == NULL)
-		error(EAGAIN);
-	win = mlx_new_window(mlx, 512, 512, "FdF");
-	if (win == NULL)
-		error(EAGAIN);
-	mlx_string_put(mlx, win, 100, 100, 0xCC00CC, "BONJOUR");
-	mlx_key_hook(win, &key_hook, 0);
-	mlx_loop(mlx);
 }
 
 int	quit(void)
@@ -42,16 +34,19 @@ int	quit(void)
 	return (0);
 }
 
+void	free_error(void *ptr, int code)
+{
+	free(ptr);
+	error(code);
+}
+
 void	error(int code)
 {
-	if (code >= 0)
-	{
+	if (code)
 		errno = code;
+	if (errno > 0)
 		perror("");
-	}
-	else
-	{
-		if (code == EMALLOC)
-			ft_putst
+	else if (errno == -1)
+		ft_putstr_fd("Usage : ./fd map\n", 2);
 	exit(EXIT_FAILURE);
 }

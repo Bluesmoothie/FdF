@@ -6,13 +6,13 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 17:23:48 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/15 17:59:57 by ygille           ###   ########.fr       */
+/*   Updated: 2024/11/17 19:53:57 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	ft_strlen(const char *s)
+int	ft_strlen_g(const char *s)
 {
 	int	len;
 
@@ -22,7 +22,7 @@ int	ft_strlen(const char *s)
 	return (len);
 }
 
-int	ft_strlcpy(char *dst, const char *src, int size)
+int	ft_strlcpy_g(char *dst, const char *src, int size)
 {
 	int	count;
 

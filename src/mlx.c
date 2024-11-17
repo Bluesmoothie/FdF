@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   mlx.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/15 17:23:13 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/17 19:54:10 by ygille           ###   ########.fr       */
+/*   Created: 2024/11/17 19:36:09 by ygille            #+#    #+#             */
+/*   Updated: 2024/11/17 19:36:19 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "../includes/fdf.h"
 
-# include <unistd.h>
-# include <stdlib.h>
+t_mlx	*open_window(void)
+{
+	t_mlx	*mlx;
 
-char	*get_next_line(int fd);
-char	*add_char(char c, char *line);
-char	*empty_line(void);
-
-int		ft_strlen_g(const char *s);
-int		ft_strlcpy_g(char *dst, const char *src, int size);
-char	*protect(char *str);
-
-#endif
+	mlx = malloc(sizeof(t_mlx));
+	if (mlx == NULL)
+		error(0);
+	mlx->id = mlx_init();
+	if (mlx->id == NULL)
+		free_error((void *)mlx, EAGAIN);
+	mlx->win = mlx_new_window(mlx->id, 512, 512, "FdF");
+	if (mlx->win == NULL)
+		free_error((void *)mlx, EAGAIN);
+	return (mlx);
+}

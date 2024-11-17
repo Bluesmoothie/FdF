@@ -1,27 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/15 17:23:13 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/17 19:54:10 by ygille           ###   ########.fr       */
+/*   Created: 2024/11/17 19:31:44 by ygille            #+#    #+#             */
+/*   Updated: 2024/11/17 19:56:20 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "../includes/fdf.h"
 
-# include <unistd.h>
-# include <stdlib.h>
+t_map	*retrieve_map(char *map_file)
+{
+	int		fd;
+	t_map	*map;
 
-char	*get_next_line(int fd);
-char	*add_char(char c, char *line);
-char	*empty_line(void);
+	fd = open_map(map_file);
+	map = parse_map(fd);
+	return (map);
+}
 
-int		ft_strlen_g(const char *s);
-int		ft_strlcpy_g(char *dst, const char *src, int size);
-char	*protect(char *str);
+int	open_map(char *map)
+{
+	int	fd;
 
-#endif
+	fd = open(map, O_RDONLY);
+	if (fd == -1)
+		error(0);
+	return (fd);
+}
+t_map	*parse_map(int fd)
+{
+	t_map	*map;
+
+	map = (t_map *) 0;
+	(void) fd;
+	return (map);
+}
