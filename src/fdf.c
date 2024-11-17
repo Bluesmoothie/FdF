@@ -6,13 +6,19 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:51 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/17 16:47:39 by ygille           ###   ########.fr       */
+/*   Updated: 2024/11/17 17:04:38 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
+#include "../includes/mlx.h"
 
-int	main(int argc, char *argv[])
+int	main()
 {
-	
+	void	*mlx;
+
+	mlx = mlx_init();
+	if (mlx == NULL)
+		return (-1);
+	return (0);
 }

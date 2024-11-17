@@ -15,12 +15,12 @@ CC			=	gcc
 INCLUDE 	=	includes
 CFLAGS		=	-Wall -Wextra -Werror -I$(INCLUDE)
 RM			=	rm -f
-SRC_FILES	=	
+SRC_FILES	=	fdf
 
 all:			$(NAME)
 
-$(NAME):		$(OBJS) $(LIBFT_A) $(GNL_A) $(MLX_A)
-				$(CC) $(CFLAGS) $(OBJ) -L$(LIBFT) -lft -L$(GNL) -lgnl -L$(MLX) -lmlx -lm -o $(NAME)
+$(NAME):		$(OBJ_DIR) $(OBJ) $(LIBFT_A) $(GNL_A) $(MLX_A)
+				$(CC) $(CFLAGS) $(OBJ) -L$(LIBFT) -lft -L$(GNL) -lgnl -L$(MLX) -lmlx -lm -o $(NAME) -lXext -lX11
 
 $(LIBFT_A):
 				@$(MAKE) -s -C $(LIBFT)
@@ -31,11 +31,14 @@ $(GNL_A):
 $(MLX_A):
 				@$(MAKE) -s -C $(MLX)
 
-.c.o:
-				@$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+$(OBJ_DIR):
+	mkdir $(OBJ_DIR)
+
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c
+			$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-				@$(RM) $(OBJS)
+				@$(RM) -rf $(OBJ_DIR)
 				$(MAKE) clean -s -C $(LIBFT)
 				$(MAKE) clean -s -C $(GNL)
 				$(MAKE) clean -s -C $(MLX)
