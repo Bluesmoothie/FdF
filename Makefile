@@ -1,7 +1,7 @@
 NAME		=	fdf
 LIBFT		=	libft/
 GNL			=	get_next_line/
-MLX			=	minilibx/
+MLX			=	minilibx-linux/
 LIBFT_A		=	$(addprefix $(LIBFT), libft.a)
 GNL_A		=	$(addprefix $(GNL), libgnl.a)
 MLX_A		=	$(addprefix $(MLX), libmlx.a)
