@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:22 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/18 12:40:56 by ygille           ###   ########.fr       */
+/*   Updated: 2024/11/18 12:59:18 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_mlx
 {
 	void	*id;
 	void	*win;
+	void	*img;
 }	t_mlx;
 
 typedef struct s_map
@@ -84,7 +85,8 @@ t_map	*retrieve_map(char *map);
 int		open_map(char *map);
 t_map	*parse_map(int fd);
 
-//color.c
+//image.c
 int		pixel_color(int t, int r, int g, int b);
+void	test_rainbow(t_mlx *mlx);
 
 #endif
