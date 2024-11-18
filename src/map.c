@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 19:31:44 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/17 19:56:20 by ygille           ###   ########.fr       */
+/*   Updated: 2024/11/18 13:57:42 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	open_map(char *map)
 		error(0);
 	return (fd);
 }
+
 t_map	*parse_map(int fd)
 {
 	t_map	*map;

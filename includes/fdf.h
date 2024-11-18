@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:22 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/18 12:59:18 by ygille           ###   ########.fr       */
+/*   Updated: 2024/11/18 13:55:44 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # define EMALLOC		-1
 # define HEIGHT			512
 # define WIDTH			512
+# define DEPTH			32
 # define ENDIAN			1
 
 # include <stddef.h>
@@ -36,6 +37,10 @@ typedef struct s_mlx
 	void	*id;
 	void	*win;
 	void	*img;
+	int		*img_data;
+	int		size_line;
+	int		depth;
+	int		endian;
 }	t_mlx;
 
 typedef struct s_map
@@ -67,13 +72,15 @@ enum
 };
 
 //fdf.c
-void	free_error(void *ptr, int code);
+void	free_error(t_mlx *mlx, int code);
 void	error(int code);
 int		quit(t_mlx *mlx);
 
 //mlx.c
 t_mlx	*open_window(char *title);
 void	input_wait(t_mlx *mlx);
+void	new_image(t_mlx *mlx);
+t_mlx	*init_struct();
 
 //user_input.c
 int		key_hook(int keycode, void *param);
@@ -87,6 +94,7 @@ t_map	*parse_map(int fd);
 
 //image.c
 int		pixel_color(int t, int r, int g, int b);
-void	test_rainbow(t_mlx *mlx);
+int		test_rainbow(void *param);
+void	fill_color(t_mlx *mlx, int color);
 
 #endif

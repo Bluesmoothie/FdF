@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:51 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/18 12:57:30 by ygille           ###   ########.fr       */
+/*   Updated: 2024/11/18 13:38:57 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,12 @@ int	quit(t_mlx *mlx)
 	return (0);
 }
 
-void	free_error(void *ptr, int code)
+void	free_error(t_mlx *mlx, int code)
 {
-	free(ptr);
+	mlx_destroy_window(mlx->id, mlx->win);
+	if (mlx->img)
+		mlx_destroy_image(mlx->id, mlx->img);
+	free(mlx);
 	error(code);
 }
 
