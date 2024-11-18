@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:22 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/17 19:51:47 by ygille           ###   ########.fr       */
+/*   Updated: 2024/11/18 11:01:58 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # include "mlx.h"
 # include "libft.h"
 # include "get_next_line.h"
+# include "ft_printf.h"
 
 typedef struct s_mlx
 {
@@ -51,6 +52,7 @@ t_mlx	*open_window(void);
 
 //user_input.c
 int		key_hook(int keycode, void *param);
+int		mouse_hook(int button, int x, int y, void *param);
 
 //map.c
 t_map	*retrieve_map(char *map);
