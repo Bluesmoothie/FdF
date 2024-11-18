@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:22 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/18 12:06:39 by ygille           ###   ########.fr       */
+/*   Updated: 2024/11/18 12:18:04 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,11 @@ enum
 //fdf.c
 void	free_error(void *ptr, int code);
 void	error(int code);
-int		quit(void);
+int		quit(t_mlx *mlx);
 
 //mlx.c
 t_mlx	*open_window(void);
+void	input_wait(t_mlx *mlx);
 
 //user_input.c
 int		key_hook(int keycode, void *param);

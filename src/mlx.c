@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 19:36:09 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/17 19:36:19 by ygille           ###   ########.fr       */
+/*   Updated: 2024/11/18 12:17:59 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,12 @@ t_mlx	*open_window(void)
 	if (mlx->win == NULL)
 		free_error((void *)mlx, EAGAIN);
 	return (mlx);
+}
+
+void	input_wait(t_mlx *mlx)
+{
+	mlx_key_hook(mlx->win, &key_hook, (void *)mlx);
+	mlx_hook(mlx->win, ON_DESTROY, KEY_RELEASE, &destroy_hook, (void *)mlx);
+	mlx_loop(mlx->id);
+	return ;
 }
