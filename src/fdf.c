@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:51 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/18 10:55:09 by ygille           ###   ########.fr       */
+/*   Updated: 2024/11/18 12:06:53 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char *argv[])
 	(void) map;
 	mlx = open_window();
 	mlx_key_hook(mlx->win, &key_hook, (void *)mlx);
-	mlx_mouse_hook(mlx->win, &mouse_hook, (void *)mlx);
+	mlx_hook(mlx->win, ON_DESTROY, KEY_RELEASE, &destroy_hook, (void *)mlx);
 	mlx_loop(mlx->id);
 	free(mlx);
 	exit(EXIT_SUCCESS);
