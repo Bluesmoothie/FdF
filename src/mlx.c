@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 19:36:09 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/18 16:02:14 by ygille           ###   ########.fr       */
+/*   Updated: 2024/11/18 18:36:41 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ t_mlx	*open_window(char *title)
 	mlx = init_struct();
 	mlx->id = mlx_init();
 	if (mlx->id == NULL)
-		free_error(mlx, EAGAIN);
+		free_error(mlx, NULL, EAGAIN);
 	mlx->win = mlx_new_window(mlx->id, HEIGHT, WIDTH, title);
 	if (mlx->win == NULL)
-		free_error(mlx, EAGAIN);
+		free_error(mlx, NULL, EAGAIN);
 	return (mlx);
 }
 
@@ -38,7 +38,7 @@ void	new_image(t_mlx *mlx)
 {
 	mlx->img = mlx_new_image(mlx->id, WIDTH, HEIGHT);
 	if (mlx->img == NULL)
-		free_error(mlx, 0);
+		free_error(mlx, NULL, 0);
 	mlx->img_data = (int *)mlx_get_data_addr
 		(mlx->img, &(mlx->depth), &(mlx->size_line), &(mlx->endian));
 	return ;
