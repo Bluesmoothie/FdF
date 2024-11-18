@@ -6,14 +6,17 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:22 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/18 12:18:04 by ygille           ###   ########.fr       */
+/*   Updated: 2024/11/18 12:40:56 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-# define EMALLOC	-1
+# define EMALLOC		-1
+# define HEIGHT			512
+# define WIDTH			512
+# define ENDIAN			1
 
 # include <stddef.h>
 # include <stdlib.h>
@@ -68,7 +71,7 @@ void	error(int code);
 int		quit(t_mlx *mlx);
 
 //mlx.c
-t_mlx	*open_window(void);
+t_mlx	*open_window(char *title);
 void	input_wait(t_mlx *mlx);
 
 //user_input.c

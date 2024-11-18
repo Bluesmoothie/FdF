@@ -6,13 +6,13 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 19:36:09 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/18 12:17:59 by ygille           ###   ########.fr       */
+/*   Updated: 2024/11/18 12:26:15 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-t_mlx	*open_window(void)
+t_mlx	*open_window(char *title)
 {
 	t_mlx	*mlx;
 
@@ -22,7 +22,7 @@ t_mlx	*open_window(void)
 	mlx->id = mlx_init();
 	if (mlx->id == NULL)
 		free_error((void *)mlx, EAGAIN);
-	mlx->win = mlx_new_window(mlx->id, 512, 512, "FdF");
+	mlx->win = mlx_new_window(mlx->id, HEIGHT, WIDTH, title);
 	if (mlx->win == NULL)
 		free_error((void *)mlx, EAGAIN);
 	return (mlx);

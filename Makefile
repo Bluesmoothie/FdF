@@ -20,7 +20,8 @@ RM			=	rm -f
 SRC_FILES	=	fdf \
 				user_input \
 				map \
-				mlx
+				mlx \
+				image
 
 all:			$(NAME)
 
