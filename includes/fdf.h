@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:22 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/18 13:55:44 by ygille           ###   ########.fr       */
+/*   Updated: 2024/11/18 16:01:30 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ t_map	*parse_map(int fd);
 
 //image.c
 int		pixel_color(int t, int r, int g, int b);
-int		test_rainbow(void *param);
+int		test_image(void *param, int color);
 void	fill_color(t_mlx *mlx, int color);
 
 #endif

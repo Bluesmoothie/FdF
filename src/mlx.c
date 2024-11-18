@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 19:36:09 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/18 13:57:27 by ygille           ###   ########.fr       */
+/*   Updated: 2024/11/18 16:02:14 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	input_wait(t_mlx *mlx)
 {
 	mlx_key_hook(mlx->win, &key_hook, (void *)mlx);
 	mlx_hook(mlx->win, ON_DESTROY, KEY_RELEASE, &destroy_hook, (void *)mlx);
-	mlx_loop_hook(mlx->id, &test_rainbow, (void *) mlx);
 	mlx_loop(mlx->id);
 	return ;
 }
