@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 17:23:06 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/17 19:54:27 by ygille           ###   ########.fr       */
+/*   Updated: 2024/11/18 10:21:59 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,15 @@ char	*add_char(char c, char *line)
 		line[1] = '\0';
 		return (line);
 	}
-	tmp = malloc(sizeof(char) * (ft_strlen(line) + 1));
+	tmp = malloc(sizeof(char) * (ft_strlen_g(line) + 1));
 	if (tmp == NULL)
 		return (protect(line));
-	ft_strlcpy_g(tmp, line, ft_strlen(line) + 1);
+	ft_strlcpy_g(tmp, line, ft_strlen_g(line) + 1);
 	free(line);
-	line = malloc(sizeof(char) * (ft_strlen(tmp) + 2));
+	line = malloc(sizeof(char) * (ft_strlen_g(tmp) + 2));
 	if (line == NULL)
 		return (protect(tmp));
-	ft_strlcpy_g(line, tmp, ft_strlen(tmp) + 1);
+	ft_strlcpy_g(line, tmp, ft_strlen_g(tmp) + 1);
 	line[ft_strlen_g(tmp)] = c;
 	line[ft_strlen_g(tmp) + 1] = '\0';
 	free(tmp);
