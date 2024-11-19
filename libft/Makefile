@@ -62,10 +62,10 @@ RM		= rm -f
 
 CFLAGS	= -Wall -Wextra -Werror
 
-%.o : %.c
+%.o:%.c
 	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) -I $(INCS)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) libft.h
 	$(LIBC) $(NAME) $(OBJS)
 	$(LIBR) $(NAME)
 
