@@ -20,7 +20,7 @@ OBJ 		= 	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
 
 all:		$(NAME)
 
-$(NAME):	$(OBJ_DIR) $(OBJ)
+$(NAME):	$(OBJ_DIR) $(OBJ) $(INCLUDE)/ft_printf.h
 			make -C $(LIBFT)
 			cp libft/libft.a .
 			mv libft.a $(NAME)

@@ -10,6 +10,7 @@ PRINTF_A	=	$(addprefix $(PRINTF), libftprintf.a)
 
 SRC 		= 	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJ 		= 	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
+INC 		= 	$(addprefix $(INCLUDE)/, $(addsuffix .h, $(INCLUDE_FILES)))
 SRC_DIR		=	src/
 OBJ_DIR		=	obj/
 
@@ -17,6 +18,11 @@ CC			=	gcc
 INCLUDE 	=	includes
 CFLAGS		=	-Wall -Wextra -Werror -I$(INCLUDE)
 RM			=	rm -f
+INCLUDE_FILES = fdf \
+				ft_printf \
+				get_next_line \
+				libft \
+				mlx
 SRC_FILES	=	fdf \
 				user_input \
 				map \
@@ -25,7 +31,7 @@ SRC_FILES	=	fdf \
 
 all:			$(NAME)
 
-$(NAME):		$(OBJ_DIR) $(OBJ) $(LIBFT_A) $(GNL_A) $(MLX_A) $(PRINTF_A)
+$(NAME):		$(OBJ_DIR) $(OBJ) $(LIBFT_A) $(GNL_A) $(MLX_A) $(PRINTF_A) $(INC)
 				$(CC) $(CFLAGS) $(OBJ) -L$(PRINTF) -lftprintf -L$(LIBFT) -lft -L$(GNL) -lgnl -L$(MLX) -lmlx -lm -o $(NAME) -lXext -lX11
 
 $(LIBFT_A):
