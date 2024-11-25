@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 19:31:44 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/18 19:03:08 by ygille           ###   ########.fr       */
+/*   Updated: 2024/11/25 18:17:17 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,36 +34,27 @@ int	open_map(char *map)
 
 void	get_map_size(t_map *map, char *map_file)
 {
-	char	*line;
 	int		fd;
+	int		i;
 
+	i = 0;
 	fd = open_map(map_file);
-	line = get_next_line(fd);
-	if (line == NULL)
+	while (get_next_line(fd) != NULL)
+		i++;
+	if (i == 0)
 		free_error(NULL, map, 0);
-	map->width = ft_strlen(line);
-	while (line != NULL)
-	{
-		if (ft_strlen(line) != map->width)
-			free_error(NULL, map, -2);
-		(map->height)++;
-		map->max_altitude = max_alt(line);
-		free(line);
-		line = get_next_line(fd);
-	}
+	map->height = i;
 	close(fd);
 	return ;
 }
 
-unsigned int	max_alt(char *line)
+int	max_alt(char *line, int max)
 {
-	unsigned int	max;
-
-	max = 0;
 	while (*line != '\0')
 	{
-		if ((unsigned int)(*line - '0') > max)
+		if (*line - '0' > max && *line != ' ')
 			max = *line - '0';
+		printf("char = %c\n", *line);
 		line++;
 	}
 	return (max);

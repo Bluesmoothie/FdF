@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:22 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/18 18:59:24 by ygille           ###   ########.fr       */
+/*   Updated: 2024/11/25 18:17:55 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ typedef struct s_mlx
 
 typedef struct s_map
 {
-	unsigned int	height;
-	unsigned int	width;
-	unsigned int	max_altitude;
-	unsigned int	**tab;
+	int	height;
+	int	width;
+	int	max_altitude;
+	int	**tab;
 }	t_map;
 
 enum
@@ -92,7 +92,7 @@ t_map			*retrieve_map(char *map);
 int				open_map(char *map);
 void			get_map_size(t_map *map, char *map_file);
 t_map			*map_init(void);
-unsigned int	max_alt(char *line);
+int				max_alt(char *line, int max);
 
 //image.c
 int				pixel_color(int t, int r, int g, int b);

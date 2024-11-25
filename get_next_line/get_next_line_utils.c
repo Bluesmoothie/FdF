@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 17:23:48 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/25 12:54:47 by ygille           ###   ########.fr       */
+/*   Updated: 2024/11/25 17:42:59 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	size;
 	char	*join;
 
-	size = ft_strlen(s1) + ft_strlen(s2) + 1;
+	size = ft_strlen_g(s1) + ft_strlen_g(s2) + 1;
 	join = malloc(sizeof(char) * size);
 	if (join == NULL)
 		return (NULL);
 	join[0] = '\0';
-	ft_strlcat(join, s1, ft_strlen(s1) + 1);
+	ft_strlcat(join, s1, ft_strlen_g(s1) + 1);
 	ft_strlcat(join, s2, size);
 	return (join);
 }
@@ -57,21 +57,21 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 		return (1);
 	}
 	if (size == 0)
-		return (ft_strlen(src));
+		return (ft_strlen_g(src));
 	while (dst[i] && i < size)
 		i++;
 	if (i == size)
-		return (i + ft_strlen(src));
+		return (i + ft_strlen_g(src));
 	while (src[j] && i + j < size - 1 && src != NULL)
 	{
 		dst[i + j] = src[j];
 		j++;
 	}
 	dst[i + j] = '\0';
-	return (i + ft_strlen(src));
+	return (i + ft_strlen_g(src));
 }
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen_g(const char *s)
 {
 	size_t	len;
 
