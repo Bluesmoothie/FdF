@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:22 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/26 17:27:52 by ygille           ###   ########.fr       */
+/*   Updated: 2024/11/26 20:58:08 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # define ENDIAN			1
 # define OFFSET_X		200
 # define OFFSET_Y		50
-# define ANGLE			0.3
+# define ANGLE			1.46373398
 
 # include <stddef.h>
 # include <stdlib.h>
