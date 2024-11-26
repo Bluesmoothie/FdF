@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 13:12:15 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/26 13:37:02 by ygille           ###   ########.fr       */
+/*   Updated: 2024/11/26 14:46:22 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,54 +14,48 @@
 
 void	draw_grid(t_mlx *mlx)
 {
-	int		i;
-	int		j;
+    int	i;
+    int	j;
+    int	color;
 
-	i = 0;
-	while (i < mlx->map->height)
-	{
-		j = 0;
-		while (j < mlx->map->width)
-		{
-			if (j + 1 < mlx->map->width)
-				draw_line(mlx, i * mlx->map->zoom, j * mlx->map->zoom, i * mlx->map->zoom, (j + 1) * mlx->map->zoom);
-			if (i + 1 < mlx->map->height)
-				draw_line(mlx, i * mlx->map->zoom, j * mlx->map->zoom, (i + 1) * mlx->map->zoom, j * mlx->map->zoom);
-			j++;
-		}
-		i++;
-	}
-	return ;
+    i = 0;
+    while (i < mlx->map->height)
+    {
+        j = 0;
+        while (j < mlx->map->width)
+        {
+            color = gradient(mlx->map->tab[i][j], mlx->map->max_altitude);
+            if (j < mlx->map->width - 1)
+                draw_line(mlx, i * mlx->map->zoom, j * mlx->map->zoom, i * mlx->map->zoom, (j + 1) * mlx->map->zoom, color);
+            if (i < mlx->map->height - 1)
+                draw_line(mlx, i * mlx->map->zoom, j * mlx->map->zoom, (i + 1) * mlx->map->zoom, j * mlx->map->zoom, color);
+            j++;
+        }
+        i++;
+    }
 }
 
-void	draw_line(t_mlx *mlx, int sx, int sy, int ex, int ey)
+void	draw_line(t_mlx *mlx, int sy, int sx, int ey, int ex, int color)
 {
-	int		dx;
-	int		dy;
-	int		x;
-	int		y;
-
-	dx = ex - sx;
-	dy = ey - sy;
-	x = sx;
-	y = sy;
-	if (abs(dx) > abs(dy))
-	{
-		while (x != ex)
-		{
-			mlx->img_data[x + y * WIDTH] = pixel_color(0, 255, 0, 0);
-			x += dx > 0 ? 1 : -1;
-			y += dy * (ex - x) / dx;
-		}
-	}
-	else
-	{
-		while (y != ey)
-		{
-			mlx->img_data[x + y * WIDTH] = pixel_color(0, 255, 0, 0);
-			y += dy > 0 ? 1 : -1;
-			x += dx * (ey - y) / dy;
-		}
-	}
-	return ;
+    int dx, dy, p, x, y;
+    dx = ex - sx;
+    dy = ey - sy;
+    x = sx;
+    y = sy;
+    p = 2 * dy - dx;
+    while (x <= ex)
+    {
+        if (p >= 0)
+        {
+            mlx->img_data[y * WIDTH + x] = color;
+            y++;
+            p = p + 2 * dy - 2 * dx;
+        }
+        else
+        {
+            mlx->img_data[y * WIDTH + x] = color;
+            p = p + 2 * dy;
+        }
+        x++;
+    }
 }

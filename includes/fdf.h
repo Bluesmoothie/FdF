@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:22 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/26 13:35:25 by ygille           ###   ########.fr       */
+/*   Updated: 2024/11/26 14:42:18 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,12 +101,13 @@ void			parse_map_line(t_map *map, int fd, int line);
 
 //image.c
 int				pixel_color(int t, int r, int g, int b);
+int				gradient(int altitude, int max_altitude);
 int				test_image(void *param, int color);
 void			fill_color(t_mlx *mlx, int color);
 int				test_grid(void *param);
 
 //grid.c
 void			draw_grid(t_mlx *mlx);
-void			draw_line(t_mlx *mlx, int sx, int sy, int ex, int ey);
+void			draw_line(t_mlx *mlx, int sy, int sx, int ey, int ex, int color);
 
 #endif

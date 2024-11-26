@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 12:05:15 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/26 13:11:40 by ygille           ###   ########.fr       */
+/*   Updated: 2024/11/26 14:40:31 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,16 @@
 int	pixel_color(int t, int r, int g, int b)
 {
 	return (t << 24 | r << 16 | g << 8 | b);
+}
+
+int	gradient(int altitude, int max_altitude)
+{
+    int r, g, b;
+
+    r = (255 * altitude) / max_altitude;
+    g = (255 * (max_altitude - altitude)) / max_altitude;
+    b = 128;
+    return (pixel_color(0, r, g, b));
 }
 
 int	test_image(void *param, int color)
