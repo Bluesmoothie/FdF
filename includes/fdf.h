@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:22 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/25 18:17:55 by ygille           ###   ########.fr       */
+/*   Updated: 2024/11/26 13:35:25 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define FDF_H
 
 # define EMALLOC		-1
-# define HEIGHT			512
-# define WIDTH			512
+# define HEIGHT			2048
+# define WIDTH			2048
 # define DEPTH			32
 # define ENDIAN			1
 
@@ -32,6 +32,15 @@
 # include "get_next_line.h"
 # include "ft_printf.h"
 
+typedef struct s_map
+{
+	int	height;
+	int	width;
+	int	max_altitude;
+	int	**tab;
+	int	zoom;
+}	t_map;
+
 typedef struct s_mlx
 {
 	void	*id;
@@ -41,15 +50,8 @@ typedef struct s_mlx
 	int		size_line;
 	int		depth;
 	int		endian;
+	t_map	*map;
 }	t_mlx;
-
-typedef struct s_map
-{
-	int	height;
-	int	width;
-	int	max_altitude;
-	int	**tab;
-}	t_map;
 
 enum
 {
@@ -77,7 +79,7 @@ void			error(int code);
 int				quit(t_mlx *mlx);
 
 //mlx.c
-t_mlx			*open_window(char *title);
+t_mlx			*open_window(char *title, t_mlx *mlx);
 void			input_wait(t_mlx *mlx);
 void			new_image(t_mlx *mlx);
 t_mlx			*init_struct(void);
@@ -94,9 +96,17 @@ void			get_map_size(t_map *map, char *map_file);
 t_map			*map_init(void);
 int				max_alt(char *line, int max);
 
+//map2.c
+void			parse_map_line(t_map *map, int fd, int line);
+
 //image.c
 int				pixel_color(int t, int r, int g, int b);
 int				test_image(void *param, int color);
 void			fill_color(t_mlx *mlx, int color);
+int				test_grid(void *param);
+
+//grid.c
+void			draw_grid(t_mlx *mlx);
+void			draw_line(t_mlx *mlx, int sx, int sy, int ex, int ey);
 
 #endif

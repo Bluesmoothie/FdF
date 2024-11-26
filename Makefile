@@ -27,7 +27,9 @@ SRC_FILES	=	fdf \
 				user_input \
 				map \
 				mlx \
-				image
+				image \
+				map2 \
+				grid
 
 all:			$(NAME)
 

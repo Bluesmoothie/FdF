@@ -6,17 +6,14 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 19:36:09 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/18 18:36:41 by ygille           ###   ########.fr       */
+/*   Updated: 2024/11/26 13:16:27 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-t_mlx	*open_window(char *title)
+t_mlx	*open_window(char *title, t_mlx *mlx)
 {
-	t_mlx	*mlx;
-
-	mlx = init_struct();
 	mlx->id = mlx_init();
 	if (mlx->id == NULL)
 		free_error(mlx, NULL, EAGAIN);
@@ -30,6 +27,7 @@ void	input_wait(t_mlx *mlx)
 {
 	mlx_key_hook(mlx->win, &key_hook, (void *)mlx);
 	mlx_hook(mlx->win, ON_DESTROY, KEY_RELEASE, &destroy_hook, (void *)mlx);
+	mlx_loop_hook(mlx->id, &test_grid, (void *)mlx);
 	mlx_loop(mlx->id);
 	return ;
 }

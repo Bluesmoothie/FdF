@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 19:31:44 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/25 18:17:17 by ygille           ###   ########.fr       */
+/*   Updated: 2024/11/26 11:50:55 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,16 @@ void	get_map_size(t_map *map, char *map_file)
 		free_error(NULL, map, 0);
 	map->height = i;
 	close(fd);
+	map->tab = malloc(sizeof(int *) * map->height);
+	if (map->tab == NULL)
+		free_error(NULL, map, 0);
+	i = 0;
+	fd = open_map(map_file);
+	while (i < map->height)
+	{
+		parse_map_line(map, fd, i);
+		i++;
+	}
 	return ;
 }
 

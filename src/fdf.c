@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:51 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/18 19:02:41 by ygille           ###   ########.fr       */
+/*   Updated: 2024/11/26 13:38:50 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,16 @@
 int	main(int argc, char *argv[])
 {
 	t_mlx	*mlx;
-	t_map	*map;
 
 	if (argc != 2)
 		error(-1);
-	map = retrieve_map(argv[1]);
-	(void) map;
-	mlx = open_window(argv[1]);
+	mlx = init_struct();
+	mlx->map = retrieve_map(argv[1]);
+	mlx->map->zoom = WIDTH / mlx->map->width;
+	if (mlx->map->zoom > HEIGHT / mlx->map->height)
+		mlx->map->zoom = HEIGHT / mlx->map->height;
+	ft_printf("Zoom = %u\n", mlx->map->zoom);
+	mlx = open_window(argv[1], mlx);
 	input_wait(mlx);
 	free(mlx);
 	exit(EXIT_SUCCESS);

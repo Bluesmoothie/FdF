@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 17:23:06 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/25 17:42:32 by ygille           ###   ########.fr       */
+/*   Updated: 2024/11/26 12:55:17 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,16 +61,16 @@ char	*read_buff(int fd, char **mem, char *buff, int *state)
 		if (*state < 0)
 			return (NULL);
 	}
-	return (extract_line(mem));
+	return (extract_line(mem, state));
 }
 
-char	*extract_line(char **mem)
+char	*extract_line(char **mem, int *state)
 {
 	char	*res;
 	int		i;
 
 	i = 0;
-	if (check_mem(mem))
+	if (check_mem(mem, state))
 		return (NULL);
 	while ((*mem)[i] != '\n' && (*mem)[i] != '\0')
 		i++;
@@ -116,14 +116,18 @@ char	*update_mem(char *mem)
 	return (mem);
 }
 
-int	check_mem(char **mem)
+int	check_mem(char **mem, int *state)
 {
 	if (*mem == NULL)
+	{
+		*state = 1;
 		return (1);
+	}
 	if (ft_strlen_g(*mem) == 0)
 	{
 		free (*mem);
 		*mem = NULL;
+		*state = 1;
 		return (1);
 	}
 	return (0);
