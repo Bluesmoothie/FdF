@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:22 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/26 14:42:18 by ygille           ###   ########.fr       */
+/*   Updated: 2024/11/26 17:27:52 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 # define WIDTH			2048
 # define DEPTH			32
 # define ENDIAN			1
+# define OFFSET_X		200
+# define OFFSET_Y		50
+# define ANGLE			0.3
 
 # include <stddef.h>
 # include <stdlib.h>
@@ -109,5 +112,10 @@ int				test_grid(void *param);
 //grid.c
 void			draw_grid(t_mlx *mlx);
 void			draw_line(t_mlx *mlx, int sy, int sx, int ey, int ex, int color);
+void			td_grid(t_mlx *mlx);
+
+//isometric.c
+int				iso_x(int x, int y);
+int				iso_y(int x, int y, int z);
 
 #endif

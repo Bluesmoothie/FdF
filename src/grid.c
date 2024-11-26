@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 13:12:15 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/26 15:12:20 by ygille           ###   ########.fr       */
+/*   Updated: 2024/11/26 17:08:27 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,27 @@ void	draw_line(t_mlx *mlx, int sy, int sx, int ey, int ex, int color)
 		}
 	}
 	return ;
+}
+
+void	td_grid(t_mlx *mlx)
+{
+	int	i;
+    int	j;
+    int	color;
+
+    i = 0;
+    while (i < mlx->map->height)
+    {
+        j = 0;
+        while (j < mlx->map->width)
+        {
+            color = gradient(mlx->map->tab[i][j], mlx->map->max_altitude);
+            if (j < mlx->map->width - 1)
+                draw_line(mlx, iso_x(i, j) * mlx->map->zoom, iso_y(i, j, mlx->map->tab[i][j]) * mlx->map->zoom, iso_x(i, j) * mlx->map->zoom, (iso_y(i, j, mlx->map->tab[i][j]) + 1) * mlx->map->zoom, color);
+            if (i < mlx->map->height - 1)
+                draw_line(mlx, iso_x(i, j) * mlx->map->zoom, iso_y(i, j, mlx->map->tab[i][j]) * mlx->map->zoom, (iso_x(i, j) + 1) * mlx->map->zoom, iso_y(i, j, mlx->map->tab[i][j]) * mlx->map->zoom, color);
+            j++;
+        }
+        i++;
+    }
 }

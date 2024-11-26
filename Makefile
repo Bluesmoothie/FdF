@@ -29,7 +29,8 @@ SRC_FILES	=	fdf \
 				mlx \
 				image \
 				map2 \
-				grid
+				grid \
+				isometric
 
 all:			$(NAME)
 

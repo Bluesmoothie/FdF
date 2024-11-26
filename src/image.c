@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 12:05:15 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/26 14:40:31 by ygille           ###   ########.fr       */
+/*   Updated: 2024/11/26 17:05:40 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	test_grid(void *param)
 	mlx = (t_mlx *) param;
 	if (mlx->img == NULL)
 		new_image(mlx);
-	draw_grid(mlx);
+	td_grid(mlx);
 	mlx_put_image_to_window(mlx->id, mlx->win, mlx->img, 0, 0);
 	return (0);
 }
