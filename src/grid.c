@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 13:12:15 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/26 14:46:22 by ygille           ###   ########.fr       */
+/*   Updated: 2024/11/26 15:12:20 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,25 +37,32 @@ void	draw_grid(t_mlx *mlx)
 
 void	draw_line(t_mlx *mlx, int sy, int sx, int ey, int ex, int color)
 {
-    int dx, dy, p, x, y;
-    dx = ex - sx;
-    dy = ey - sy;
-    x = sx;
-    y = sy;
-    p = 2 * dy - dx;
-    while (x <= ex)
-    {
-        if (p >= 0)
-        {
-            mlx->img_data[y * WIDTH + x] = color;
-            y++;
-            p = p + 2 * dy - 2 * dx;
-        }
-        else
-        {
-            mlx->img_data[y * WIDTH + x] = color;
-            p = p + 2 * dy;
-        }
-        x++;
-    }
+    int		dx;
+	int		dy;
+	int		x;
+	int		y;
+
+	dx = ex - sx;
+	dy = ey - sy;
+	x = sx;
+	y = sy;
+	if (abs(dx) > abs(dy))
+	{
+		while (x != ex)
+		{
+			mlx->img_data[x + y * WIDTH] = color;
+			x += dx > 0 ? 1 : -1;
+			y += dy * (ex - x) / dx;
+		}
+	}
+	else
+	{
+		while (y != ey)
+		{
+			mlx->img_data[x + y * WIDTH] = color;
+			y += dy > 0 ? 1 : -1;
+			x += dx * (ey - y) / dy;
+		}
+	}
+	return ;
 }
