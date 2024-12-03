@@ -6,14 +6,13 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:22 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/26 20:58:08 by ygille           ###   ########.fr       */
+/*   Updated: 2024/11/27 11:04:38 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-# define EMALLOC		-1
 # define HEIGHT			2048
 # define WIDTH			2048
 # define DEPTH			32
