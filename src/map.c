@@ -6,12 +6,15 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 19:31:44 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/26 11:50:55 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/09 16:28:35 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
+/*
+** Retrieve the map from the file
+*/
 t_map	*retrieve_map(char *map_file)
 {
 	t_map	*map;
@@ -32,6 +35,9 @@ int	open_map(char *map)
 	return (fd);
 }
 
+/*
+** Parse the map file to get the size and the max altitude
+*/
 void	get_map_size(t_map *map, char *map_file)
 {
 	int		fd;
@@ -58,6 +64,9 @@ void	get_map_size(t_map *map, char *map_file)
 	return ;
 }
 
+/*
+** Parse a line of the map file to get the max altitude
+*/
 int	max_alt(char *line, int max)
 {
 	while (*line != '\0')
@@ -70,6 +79,9 @@ int	max_alt(char *line, int max)
 	return (max);
 }
 
+/*
+** Initialize the map structure
+*/
 t_map	*map_init(void)
 {
 	t_map	*map;

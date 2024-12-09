@@ -21,13 +21,13 @@ OBJ_DIR		=	obj/
 
 RM			=	rm -f
 
-SRC_FILES	=	fdf \
-				user_input \
-				map \
-				mlx \
-				image \
-				map2 \
-				grid \
+SRC_FILES	=	fdf 		\
+				user_input 	\
+				map 		\
+				mlx 		\
+				image 		\
+				parse 		\
+				grid 		\
 				isometric
 
 all:			$(NAME)

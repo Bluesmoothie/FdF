@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:51 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/26 17:06:40 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/09 16:28:52 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ int	main(int argc, char *argv[])
 	exit(EXIT_SUCCESS);
 }
 
+/*
+** Safely free the mlx and map structures and exit the program
+*/
 int	quit(t_mlx *mlx)
 {
 	mlx_destroy_window(mlx->id, mlx->win);
@@ -40,6 +43,10 @@ int	quit(t_mlx *mlx)
 	return (0);
 }
 
+/*
+** Safely free the mlx and map structures and exit the program
+** if an error occurs
+*/
 void	free_error(t_mlx *mlx, t_map *map, int code)
 {
 	int	i;
@@ -65,6 +72,10 @@ void	free_error(t_mlx *mlx, t_map *map, int code)
 	error(code);
 }
 
+/*
+** Print an error message and exit the program
+** Support custom error codes
+*/
 void	error(int code)
 {
 	if (code)
@@ -73,7 +84,7 @@ void	error(int code)
 		perror("");
 	else if (errno == -1)
 		ft_putstr_fd("Usage : ./fd map\n", 2);
-	else if (errno = -2)
+	else if (errno == -2)
 		ft_putstr_fd("Map error\n", 2);
 	exit(EXIT_FAILURE);
 }

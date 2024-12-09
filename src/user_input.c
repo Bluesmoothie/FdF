@@ -6,12 +6,15 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 18:23:33 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/18 16:08:40 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/09 16:27:02 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
+/*
+** Handle the key events
+*/
 int	key_hook(int keycode, void *param)
 {
 	t_mlx	*mlx;
@@ -28,6 +31,9 @@ int	key_hook(int keycode, void *param)
 	return (0);
 }
 
+/*
+** Handle the mouse events
+*/
 int	mouse_hook(int button, int x, int y, void *param)
 {
 	t_mlx	*mlx;
@@ -40,6 +46,10 @@ int	mouse_hook(int button, int x, int y, void *param)
 	return (0);
 }
 
+/*
+** Handle the destroy event
+** when the cross is clicked
+*/
 int	destroy_hook(void *param)
 {
 	t_mlx	*mlx;

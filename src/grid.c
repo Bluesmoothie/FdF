@@ -6,12 +6,15 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 13:12:15 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/26 17:08:27 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/09 16:23:22 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
+/*
+** Draw a grid adapted for the map on the window
+*/
 void	draw_grid(t_mlx *mlx)
 {
     int	i;
@@ -35,6 +38,9 @@ void	draw_grid(t_mlx *mlx)
     }
 }
 
+/*
+** Draw a line between two points on the window
+*/
 void	draw_line(t_mlx *mlx, int sy, int sx, int ey, int ex, int color)
 {
     int		dx;
@@ -67,6 +73,9 @@ void	draw_line(t_mlx *mlx, int sy, int sx, int ey, int ex, int color)
 	return ;
 }
 
+/*
+** Draw a semi 3d grid adapted for the map on the window
+*/
 void	td_grid(t_mlx *mlx)
 {
 	int	i;

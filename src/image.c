@@ -6,27 +6,38 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 12:05:15 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/26 17:05:40 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/09 16:28:14 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
+/*
+** Calculate the pixel color for mlx
+*/
 int	pixel_color(int t, int r, int g, int b)
 {
 	return (t << 24 | r << 16 | g << 8 | b);
 }
 
+/*
+** Calculate the pixel gradient
+*/
 int	gradient(int altitude, int max_altitude)
 {
-    int r, g, b;
+	int	r;
+	int	g;
+	int	b;
 
-    r = (255 * altitude) / max_altitude;
-    g = (255 * (max_altitude - altitude)) / max_altitude;
-    b = 128;
-    return (pixel_color(0, r, g, b));
+	r = (255 * altitude) / max_altitude;
+	g = (255 * (max_altitude - altitude)) / max_altitude;
+	b = 128;
+	return (pixel_color(0, r, g, b));
 }
 
+/*
+** Display a test image
+*/
 int	test_image(void *param, int color)
 {
 	t_mlx	*mlx;
@@ -39,6 +50,9 @@ int	test_image(void *param, int color)
 	return (0);
 }
 
+/*
+** Display a test grid
+*/
 int	test_grid(void *param)
 {
 	t_mlx	*mlx;
@@ -51,6 +65,9 @@ int	test_grid(void *param)
 	return (0);
 }
 
+/*
+** Fill the image with a color
+*/
 void	fill_color(t_mlx *mlx, int color)
 {
 	int	i;

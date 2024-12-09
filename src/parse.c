@@ -6,12 +6,15 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 11:45:34 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/26 13:06:55 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/09 16:26:01 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
+/*
+** Parse of the map file
+*/
 void	parse_map_line(t_map *map, int fd, int line)
 {
 	char	*line_str;
