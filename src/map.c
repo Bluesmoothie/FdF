@@ -6,11 +6,11 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 19:31:44 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/09 16:28:35 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/09 16:37:57 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fdf.h"
+#include <fdf.h>
 
 /*
 ** Retrieve the map from the file

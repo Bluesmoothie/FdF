@@ -6,11 +6,11 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 19:36:09 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/26 17:05:26 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/09 16:38:01 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fdf.h"
+#include <fdf.h>
 
 t_mlx	*open_window(char *title, t_mlx *mlx)
 {

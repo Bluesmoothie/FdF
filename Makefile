@@ -27,8 +27,9 @@ SRC_FILES	=	fdf 		\
 				mlx 		\
 				image 		\
 				parse 		\
-				grid 		\
-				isometric
+				test_grid 	\
+				isometric	\
+				tests
 
 all:			$(NAME)
 

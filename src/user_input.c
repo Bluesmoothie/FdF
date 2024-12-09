@@ -6,11 +6,11 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 18:23:33 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/09 16:27:02 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/09 16:38:11 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fdf.h"
+#include <fdf.h>
 
 /*
 ** Handle the key events
