@@ -1,84 +1,52 @@
-SRCS	= 	ft_isalpha.c \
-			ft_isdigit.c \
-			ft_isalnum.c \
-			ft_isascii.c \
-			ft_isprint.c \
-			ft_strlen.c \
-			ft_memset.c \
-			ft_bzero.c \
-			ft_memcpy.c \
-			ft_memmove.c \
-			ft_strlcpy.c \
-			ft_strlcat.c \
-			ft_toupper.c \
-			ft_tolower.c \
-			ft_strchr.c \
-			ft_strrchr.c \
-			ft_strncmp.c \
-			ft_memchr.c	\
-			ft_memcmp.c \
-			ft_strnstr.c \
-			ft_atoi.c \
-			ft_calloc.c \
-			ft_strdup.c \
-			ft_substr.c \
-			ft_strjoin.c \
-			ft_strtrim.c \
-			ft_split.c \
-			ft_itoa.c \
-			ft_strmapi.c \
-			ft_striteri.c \
-			ft_putchar_fd.c \
-			ft_pustr_fd.c \
-			ft_putendl_fd.c \
-			ft_putnbr_fd.c
+.PHONY		: 	all clean fclean re
 
-SRCS_B	=	$(SRCS) \
-			ft_lstnew.c \
-			ft_lstadd_front.c \
-			ft_lstsize.c \
-			ft_lstlast.c \
-			ft_lstadd_back.c \
-			ft_lstdelone.c \
-			ft_lstclear.c \
-			ft_lstiter.c \
-			ft_lstmap.c
+NAME		=	libft_ex.a
 
-OBJS	= $(SRCS:.c=.o)
+FT_PRINTF 	=	ft_printf/
+GNL 		=	get_next_line/
+FT 			=	libft/
 
-OBJS_B	= $(SRCS_B:.c=.o)
+LIBFTPRINTF =	$(FT_PRINTF)libftprintf.a
+LIBGNL		=	$(GNL)libgnl.a
+LIBFT		=	$(FT)libft.a
 
-INCS	= .
+RM			=	rm -rf
+LIBC		=	ar rc
+LIBR		= 	ranlib
 
-NAME	= libft.a
+all		: $(NAME)
 
-LIBC	= ar rc
+$(NAME)	: $(LIBFTPRINTF) $(LIBGNL) $(LIBFT)
+		cp $(LIBFTPRINTF) .
+		cp $(LIBGNL) .
+		cp $(LIBFT) .
+		ar -x libftprintf.a
+		ar -x libgnl.a
+		ar -x libft.a
+		$(LIBC) $(NAME) *.o
+		$(LIBR) $(NAME)
 
-LIBR	= ranlib
+$(LIBFTPRINTF)	:
+		$(MAKE) -C $(FT_PRINTF)
 
-CC		= gcc
+$(LIBGNL)	:
+		$(MAKE) -C $(GNL)
 
-RM		= rm -f
+$(LIBFT)	:
+		$(MAKE) -C $(FT)
 
-CFLAGS	= -Wall -Wextra -Werror
+clean	:
+		$(MAKE) -C $(FT_PRINTF) clean
+		$(MAKE) -C $(GNL) clean
+		$(MAKE) -C $(FT) clean
+		$(RM) libftprintf.a libgnl.a libft.a
+		$(RM) *.o
+		$(RM) $(LIBFTPRINTF) $(LIBGNL) $(LIBFT)
 
-%.o:%.c
-	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) -I $(INCS)
+fclean	: clean
+		$(MAKE) -C $(FT_PRINTF) fclean
+		$(MAKE) -C $(GNL) fclean
+		$(MAKE) -C $(FT) fclean
+		$(RM) $(NAME)
 
-$(NAME): $(OBJS) libft.h
-	$(LIBC) $(NAME) $(OBJS)
-	$(LIBR) $(NAME)
-
-bonus:	$(OBJS_B)
-	$(LIBC) $(NAME) $(OBJS_B)
-	$(LIBR) $(NAME)
-
-all: bonus
-
-clean:
-	$(RM) $(OBJS_B)
-
-fclean: clean
-	$(RM) $(NAME)
-
-re: fclean all
+re		: fclean all
