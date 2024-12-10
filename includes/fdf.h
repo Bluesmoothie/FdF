@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:22 by ygille            #+#    #+#             */
-/*   Updated: 2024/11/27 11:04:38 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/10 17:45:24 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ typedef struct s_mlx
 	t_map	*map;
 }	t_mlx;
 
-enum
+enum e_events
 {
 	ON_KEYDOWN = 2,
 	ON_KEYUP = 3,
@@ -66,7 +66,7 @@ enum
 	ON_DESTROY = 17
 };
 
-enum
+enum e_events_mask
 {
 	NO_EVENT = 0L,
 	KEY_PRESS = 1L<<0,
