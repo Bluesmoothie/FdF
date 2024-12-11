@@ -29,7 +29,9 @@ SRC_FILES	=	fdf 		\
 				parse 		\
 				test_grid 	\
 				isometric	\
-				tests
+				tests		\
+				curve		\
+				curve_utils	\
 
 all:			$(NAME)
 
@@ -45,7 +47,7 @@ $(MLX_A):
 $(OBJ_DIR):
 	mkdir $(OBJ_DIR)
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c includes/fdf.h
 			$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:51 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/09 16:37:45 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/11 13:14:10 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int	main(int argc, char *argv[])
 		error(-1);
 	mlx = init_struct();
 	mlx->map = retrieve_map(argv[1]);
-	mlx->map->zoom = WIDTH / mlx->map->width / 2;
-	if (mlx->map->zoom > HEIGHT / mlx->map->height / 2)
-		mlx->map->zoom = HEIGHT / mlx->map->height / 2;
+	mlx->map->zoom = WIDTH / mlx->map->width / ZOOM_FACTOR;
+	if (mlx->map->zoom > HEIGHT / mlx->map->height / ZOOM_FACTOR)
+		mlx->map->zoom = HEIGHT / mlx->map->height / ZOOM_FACTOR;
 	ft_printf("Zoom = %u\n", mlx->map->zoom);
 	mlx = open_window(argv[1], mlx);
 	input_wait(mlx);

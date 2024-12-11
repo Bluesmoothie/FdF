@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:22 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/10 17:45:24 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/11 16:30:26 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # define OFFSET_X		200
 # define OFFSET_Y		50
 # define ANGLE			1.46373398
+# define ZOOM_FACTOR	2
 
 # include <stddef.h>
 # include <stdlib.h>
@@ -55,6 +56,17 @@ typedef struct s_mlx
 	t_map	*map;
 }	t_mlx;
 
+typedef struct	s_curve
+{
+	int	sx;
+	int	sy;
+	int	sz;
+	int	ex;
+	int	ey;
+	int	ez;
+}	t_curve;
+
+
 enum e_events
 {
 	ON_KEYDOWN = 2,
@@ -76,9 +88,37 @@ enum e_events_mask
 };
 
 //fdf.c
+int				quit(t_mlx *mlx);
 void			free_error(t_mlx *mlx, t_map *map, int code);
 void			error(int code);
-int				quit(t_mlx *mlx);
+
+//curve.c
+void			draw_curve(t_mlx *mlx, t_curve curve);
+int				cursor(int cursor, int max);
+void			verif_pos(t_mlx *mlx, int x, int y, int z);
+
+//curve_utils.c
+void			n_curve(t_mlx *mlx, int sx, int sy);
+void			w_curve(t_mlx *mlx, int sx, int sy);
+void			e_curve(t_mlx *mlx, int sx, int sy);
+void			s_curve(t_mlx *mlx, int sx, int sy);
+
+//image.c
+int				pixel_color(int t, int r, int g, int b);
+int				gradient(int altitude, int max_altitude);
+int				view_calc(void *param);
+
+//isometric.c
+int				iso_x(int x, int y);
+int				iso_y(int x, int y, int z);
+void			iso_view(t_mlx *mlx);
+
+//map.c
+t_map			*retrieve_map(char *map);
+int				open_map(char *map);
+void			get_map_size(t_map *map, char *map_file);
+int				max_alt(char *line, int max);
+t_map			*map_init(void);
 
 //mlx.c
 t_mlx			*open_window(char *title, t_mlx *mlx);
@@ -86,35 +126,22 @@ void			input_wait(t_mlx *mlx);
 void			new_image(t_mlx *mlx);
 t_mlx			*init_struct(void);
 
+//parse.c
+void			parse_map_line(t_map *map, int fd, int line);
+
 //user_input.c
 int				key_hook(int keycode, void *param);
 int				mouse_hook(int button, int x, int y, void *param);
 int				destroy_hook(void *param);
 
-//map.c
-t_map			*retrieve_map(char *map);
-int				open_map(char *map);
-void			get_map_size(t_map *map, char *map_file);
-t_map			*map_init(void);
-int				max_alt(char *line, int max);
-
-//map2.c
-void			parse_map_line(t_map *map, int fd, int line);
-
-//image.c
-int				pixel_color(int t, int r, int g, int b);
-int				gradient(int altitude, int max_altitude);
-int				test_image(void *param, int color);
-void			fill_color(t_mlx *mlx, int color);
-int				test_grid(void *param);
-
-//grid.c
+//test_grid.c
 void			draw_grid(t_mlx *mlx);
 void			draw_line(t_mlx *mlx, int sy, int sx, int ey, int ex, int color);
 void			td_grid(t_mlx *mlx);
 
-//isometric.c
-int				iso_x(int x, int y);
-int				iso_y(int x, int y, int z);
+//tests.c
+int				test_image(void *param, int color);
+int				test_grid(void *param);
+void			fill_color(t_mlx *mlx, int color);
 
 #endif
