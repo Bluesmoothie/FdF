@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:22 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/11 17:51:46 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/11 18:18:04 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 # define WIDTH			2048
 # define DEPTH			32
 # define ENDIAN			1
-# define OFFSET_X		500
-# define OFFSET_Y		400
+# define OFFSET_X		0
+# define OFFSET_Y		0
 # define ANGLE			0.523599
 # define ZOOM_FACTOR	4
 
@@ -94,6 +94,7 @@ void			error(int code);
 
 //curve.c
 void			draw_curve(t_mlx *mlx, t_curve curve);
+void			draw_line(t_mlx *mlx, t_curve curve);
 void			verif_pos(t_mlx *mlx, int x, int y, int z);
 
 //curve_utils.c
@@ -133,14 +134,14 @@ int				key_hook(int keycode, void *param);
 int				mouse_hook(int button, int x, int y, void *param);
 int				destroy_hook(void *param);
 
-//test_grid.c
-void			draw_grid(t_mlx *mlx);
-void			draw_line(t_mlx *mlx, int sy, int sx, int ey, int ex, int color);
-void			td_grid(t_mlx *mlx);
+// //test_grid.c
+// void			draw_grid(t_mlx *mlx);
+// void			draw_line(t_mlx *mlx, int sy, int sx, int ey, int ex, int color);
+// void			td_grid(t_mlx *mlx);
 
-//tests.c
-int				test_image(void *param, int color);
-int				test_grid(void *param);
-void			fill_color(t_mlx *mlx, int color);
+// //tests.c
+// int				test_image(void *param, int color);
+// int				test_grid(void *param);
+// void			fill_color(t_mlx *mlx, int color);
 
 #endif

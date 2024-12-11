@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:51 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/11 17:29:44 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/11 18:52:19 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	main(int argc, char *argv[])
 	if (mlx->map->zoom > HEIGHT / mlx->map->height / ZOOM_FACTOR)
 		mlx->map->zoom = HEIGHT / mlx->map->height / ZOOM_FACTOR;
 	ft_printf("Zoom = %u\n", mlx->map->zoom);
+	mlx->map->zoom = 2;
 	mlx = open_window(argv[1], mlx);
 	input_wait(mlx);
 	free(mlx);

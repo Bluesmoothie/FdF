@@ -27,9 +27,7 @@ SRC_FILES	=	fdf 		\
 				mlx 		\
 				image 		\
 				parse 		\
-				test_grid 	\
 				isometric	\
-				tests		\
 				curve		\
 				curve_utils	\
 
