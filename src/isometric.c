@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 16:32:48 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/11 16:20:31 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/11 17:23:29 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,14 @@ void	iso_view(t_mlx *mlx)
 		j = 0;
 		while (j < mlx->map->width)
 		{
-			if (j > 1)
-				w_curve(mlx, i, j);
 			if (i > 1)
+				w_curve(mlx, i, j);
+			if (j > 1)
 				n_curve(mlx, i, j);
-			if (j < mlx->map->width)
-				e_curve(mlx, i, j);
-			if (i < mlx->map->height)
+			if (j < mlx->map->width - 1)
 				s_curve(mlx, i, j);
+			if (i < mlx->map->height - 1)
+				e_curve(mlx, i, j);
 			j++;
 		}
 		i++;
