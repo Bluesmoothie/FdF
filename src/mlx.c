@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 19:36:09 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/11 16:32:56 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/12 16:40:56 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ t_mlx	*open_window(char *title, t_mlx *mlx)
 void	input_wait(t_mlx *mlx)
 {
 	mlx_key_hook(mlx->win, &key_hook, (void *)mlx);
+	mlx_mouse_hook(mlx->win, &mouse_hook, (void *)mlx);
 	mlx_hook(mlx->win, ON_DESTROY, KEY_RELEASE, &destroy_hook, (void *)mlx);
 	mlx_loop_hook(mlx->id, &view_calc, (void *)mlx);
 	mlx_loop(mlx->id);
@@ -42,6 +43,13 @@ void	new_image(t_mlx *mlx)
 	return ;
 }
 
+void	clear_img(t_mlx *mlx)
+{
+	if (mlx->img != NULL)
+		mlx_destroy_image(mlx->id, mlx->img);
+	new_image(mlx);
+}
+
 t_mlx	*init_struct(void)
 {
 	t_mlx	*mlx;
@@ -56,5 +64,10 @@ t_mlx	*init_struct(void)
 	mlx->depth = DEPTH;
 	mlx->size_line = WIDTH * 4;
 	mlx->endian = ENDIAN;
+	mlx->view.x_offset = OFFSET_X;
+	mlx->view.y_offset = OFFSET_Y;
+	mlx->view.center = 0;
+	mlx->view.angle = ANGLE;
+	mlx->view.zoom = 1;
 	return (mlx);
 }

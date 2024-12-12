@@ -12,8 +12,6 @@
 
 #include <fdf.h>
 
-void	put_center(t_mlx *mlx);
-
 /*
 ** Calculate the pixel color for mlx
 */
@@ -42,10 +40,6 @@ int	view_calc(void *param)
 	t_mlx	*mlx;
 
 	mlx = (t_mlx *) param;
-	if (mlx->img == NULL)
-		new_image(mlx);
-	put_center(mlx);
-	mlx_put_image_to_window(mlx->id, mlx->win, mlx->img, 0, 0);
 	iso_view(mlx);
 	mlx_put_image_to_window(mlx->id, mlx->win, mlx->img, 0, 0);
 	return (0);
@@ -60,24 +54,10 @@ void	center(t_mlx *mlx, t_curve *curve)
 
 void	apply_zoom(t_mlx *mlx, t_curve *curve)
 {
-	(void)mlx;
-	(void)curve;
-}
-
-void	put_center(t_mlx *mlx)
-{
-	int i;
-
-	i = 0;
-	while (i < HEIGHT - 1)
-	{
-		mlx->img_data[i + (WIDTH / 2) * WIDTH] = pixel_color(0, 255, 255, 255);
-		i++;
-	}
-	i = 0;
-	while (i < WIDTH - 1)
-	{
-		mlx->img_data[(HEIGHT / 2) + i * WIDTH] = pixel_color(0, 255, 255, 255);
-		i++;
-	}
+	curve->sx *= mlx->view.zoom;
+	curve->sy *= mlx->view.zoom;
+	curve->ex *= mlx->view.zoom;
+	curve->ey *= mlx->view.zoom;
+	curve->sz *= mlx->view.zoom;
+	curve->ez *= mlx->view.zoom;
 }

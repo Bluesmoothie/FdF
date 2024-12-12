@@ -26,6 +26,7 @@ SRC_FILES	=	fdf 		\
 				map 		\
 				mlx 		\
 				image 		\
+				image_utils	\
 				parse 		\
 				isometric	\
 				curve		\
