@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 16:32:48 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/12 17:05:45 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/12 16:32:57 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,28 +27,28 @@ int	iso_y(int x, int y, int z, t_mlx *mlx)
 
 void	iso_view(t_mlx *mlx)
 {
-	int	x;
-	int	y;
+	int	i;
+	int	j;
 
-	x = 0;
+	i = 0;
 	clear_img(mlx);
 	if (mlx->view.center)
 		put_center(mlx);
-	while (x < mlx->map->height)
+	while (i < mlx->map->height)
 	{
-		y = 0;
-		while (y < mlx->map->width)
+		j = 0;
+		while (j < mlx->map->width)
 		{
-			if (x > 1)
-				w_curve(mlx, x, y);
-			if (y > 1)
-				n_curve(mlx, x, y);
-			if (x < mlx->map->width - 1)
-				e_curve(mlx, x, y);
-			if (y < mlx->map->height - 1)
-				s_curve(mlx, x, y);
-			y++;
+			if (i > 1)
+				w_curve(mlx, i, j);
+			if (j > 1)
+				n_curve(mlx, i, j);
+			if (j < mlx->map->width - 1)
+				s_curve(mlx, i, j);
+			if (i < mlx->map->height - 1)
+				e_curve(mlx, i, j);
+			j++;
 		}
-		x++;
+		i++;
 	}
 }
