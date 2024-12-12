@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 16:32:48 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/11 18:34:22 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/12 15:43:18 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@
 */
 int	iso_x(int x, int y)
 {
-	return (abs((int)(((x - y) * cos(ANGLE)) + OFFSET_X)));
+	return ((int)(((x - y) * cos(ANGLE)) + OFFSET_X));
 }
 
 int	iso_y(int x, int y, int z)
 {
-	return (abs((int)(((x + y) * sin(ANGLE) - z) + OFFSET_Y)));
+	return ((int)(((x + y) * sin(ANGLE) - z) + OFFSET_Y));
 }
 
 void	iso_view(t_mlx *mlx)

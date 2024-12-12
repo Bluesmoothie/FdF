@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:22 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/12 12:41:48 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/12 15:41:56 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 # define WIDTH			2048
 # define DEPTH			32
 # define ENDIAN			1
-# define OFFSET_X		200
-# define OFFSET_Y		200
-# define ANGLE			-45
+# define OFFSET_X		0
+# define OFFSET_Y		0
+# define ANGLE			45
 # define ZOOM_FACTOR	2
 
 # include <stddef.h>
@@ -107,6 +107,8 @@ void			s_curve(t_mlx *mlx, int sx, int sy);
 int				pixel_color(int t, int r, int g, int b);
 int				gradient(int altitude, int max_altitude);
 int				view_calc(void *param);
+void			center(t_mlx *mlx, t_curve *curve);
+void			apply_zoom(t_mlx *mlx, t_curve *curve);
 
 //isometric.c
 int				iso_x(int x, int y);

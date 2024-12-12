@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 13:34:17 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/12 12:23:40 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/12 15:17:06 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ void	bresenham(t_mlx *mlx, t_curve curve);
 
 void	draw_curve(t_mlx *mlx, t_curve curve)
 {
-	curve.sx = iso_x(curve.sx, curve.sy) * mlx->map->zoom;
-	curve.sy = iso_y(curve.sx, curve.sy, curve.sz) * mlx->map->zoom;
-	curve.ex = iso_x(curve.ex, curve.ey) * mlx->map->zoom;
-	curve.ey = iso_y(curve.ex, curve.ey, curve.ez) * mlx->map->zoom;
-	curve.sz *= mlx->map->zoom;
-	curve.ez *= mlx->map->zoom;
+	curve.sx = iso_x(curve.sx, curve.sy);
+	curve.sy = iso_y(curve.sx, curve.sy, curve.sz);
+	curve.ex = iso_x(curve.ex, curve.ey);
+	curve.ey = iso_y(curve.ex, curve.ey, curve.ez);
+	center(mlx, &curve);
+	apply_zoom(mlx, &curve);
 	bresenham(mlx, curve);
 }
 
