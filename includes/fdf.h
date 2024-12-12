@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:22 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/11 18:18:04 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/12 12:41:48 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 # define WIDTH			2048
 # define DEPTH			32
 # define ENDIAN			1
-# define OFFSET_X		0
-# define OFFSET_Y		0
-# define ANGLE			0.523599
-# define ZOOM_FACTOR	4
+# define OFFSET_X		200
+# define OFFSET_Y		200
+# define ANGLE			-45
+# define ZOOM_FACTOR	2
 
 # include <stddef.h>
 # include <stdlib.h>
