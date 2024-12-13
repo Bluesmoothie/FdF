@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 16:03:48 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/13 18:00:49 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/13 18:43:37 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,13 @@ void	turn_view(t_mlx *mlx, int keycode)
 void	zoom_view(t_mlx *mlx, int button)
 {
 	if (button == SCROLL_UP)
-		mlx->view.zoom += 1;
+		mlx->view.zoom *= 2;
 	else if (button == SCROLL_DOWN)
-		mlx->view.zoom -= 1;
+		mlx->view.zoom /= 2;
 	if (mlx->view.zoom < 1)
 		mlx->view.zoom = 1;
+	if (mlx->view.zoom > 256)
+		mlx->view.zoom = 256;
 }
 
 void	display_center(t_mlx *mlx)

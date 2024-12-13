@@ -48,8 +48,8 @@ int	view_calc(void *param)
 void	center(t_mlx *mlx, t_curve *curve)
 {
 	(void)curve;
-	mlx->view.x_offset = (WIDTH - mlx->map->width * mlx->view.zoom) / 2;
-	mlx->view.y_offset = (HEIGHT - mlx->map->height * mlx->view.zoom) / 2;
+	mlx->view.x_offset = (HEIGHT - mlx->map->height * mlx->view.zoom) / 2;
+	mlx->view.y_offset = (WIDTH - mlx->map->width * mlx->view.zoom) / 2;
 }
 
 void	apply_zoom(t_mlx *mlx, t_curve *curve)
