@@ -31,6 +31,7 @@ SRC_FILES	=	fdf 		\
 				isometric	\
 				curve		\
 				curve_utils	\
+				axonometric	\
 
 all:			$(NAME)
 

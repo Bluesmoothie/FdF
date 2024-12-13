@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:22 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/13 19:39:35 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/13 19:58:13 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ typedef struct s_view_param
 	int	angle;
 	int	x_pos;
 	int	y_pos;
+	int	view_type;
 }	t_view_param;
 
 typedef struct s_mlx
@@ -110,7 +111,8 @@ enum e_keycode
 	KEY_W = 119,
 	KEY_A = 97,
 	KEY_S = 115,
-	KEY_D = 100
+	KEY_D = 100,
+	KEY_V = 118
 };
 
 enum e_mousecode
@@ -122,15 +124,26 @@ enum e_mousecode
 	SCROLL_DOWN = 5
 };
 
+enum e_view_types
+{
+	ISO = 0,
+	AXO = 1
+};
+
 //fdf.c
 int				quit(t_mlx *mlx);
 void			free_error(t_mlx *mlx, t_map *map, int code);
 void			error(int code);
 
+//axonometric.c
+int				axo_x(int x, int z, t_mlx *mlx);
+int				axo_y(int x, int y, int z, t_mlx *mlx);
+
 //curve.c
 void			draw_curve(t_mlx *mlx, t_curve curve);
 void			verif_pos(t_mlx *mlx, int x, int y, int z);
-void			bresenham(t_mlx *mlx, t_curve curve);;
+void			bresenham(t_mlx *mlx, t_curve curve);
+void			apply_view(t_mlx *mlx, t_curve *curve);
 
 //curve_utils.c
 void			n_curve(t_mlx *mlx, int sx, int sy);

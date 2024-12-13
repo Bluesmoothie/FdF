@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 18:23:33 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/12 16:42:53 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/13 19:56:20 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	key_hook(int keycode, void *param)
 		display_center(mlx);
 	else if (keycode == KEY_E || keycode == KEY_Q)
 		turn_view(mlx, keycode);
+	else if (keycode == KEY_V)
+		mlx->view.view_type = (mlx->view.view_type + 1) % 2;
 	return (0);
 }
 
