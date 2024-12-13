@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 19:36:09 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/12 16:40:56 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/13 13:53:38 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,7 @@ t_mlx	*init_struct(void)
 	mlx->view.center = 0;
 	mlx->view.angle = ANGLE;
 	mlx->view.zoom = 1;
+	mlx->view.x_pos = 0;
+	mlx->view.y_pos = 0;
 	return (mlx);
 }

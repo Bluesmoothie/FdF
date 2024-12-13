@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:22 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/12 16:44:36 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/13 13:53:27 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 # define WIDTH			2048
 # define DEPTH			32
 # define ENDIAN			1
-# define OFFSET_X		250
-# define OFFSET_Y		-250
+# define OFFSET_X		0
+# define OFFSET_Y		0
 # define ANGLE			45
 
 # include <stddef.h>
@@ -49,6 +49,8 @@ typedef struct s_view_param
 	int	y_offset;
 	int	center;
 	int	angle;
+	int	x_pos;
+	int	y_pos;
 }	t_view_param;
 
 typedef struct s_mlx

@@ -44,6 +44,7 @@ int	view_calc(void *param)
 	mlx_put_image_to_window(mlx->id, mlx->win, mlx->img, 0, 0);
 	return (0);
 }
+
 void	center(t_mlx *mlx, t_curve *curve)
 {
 	curve->sx += (WIDTH - mlx->map->width) / 2;
@@ -56,8 +57,13 @@ void	apply_zoom(t_mlx *mlx, t_curve *curve)
 {
 	curve->sx *= mlx->view.zoom;
 	curve->sy *= mlx->view.zoom;
+	curve->sz *= mlx->view.zoom;
 	curve->ex *= mlx->view.zoom;
 	curve->ey *= mlx->view.zoom;
-	curve->sz *= mlx->view.zoom;
 	curve->ez *= mlx->view.zoom;
+	if (mlx->view.zoom == 1)
+	{
+		mlx->view.x_offset = (WIDTH - mlx->map->width) / 6;
+		mlx->view.y_offset = - (HEIGHT - mlx->map->height) / 6;
+	}
 }
