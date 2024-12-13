@@ -40,7 +40,7 @@ int	view_calc(void *param)
 	t_mlx	*mlx;
 
 	mlx = (t_mlx *) param;
-	iso_view(mlx);
+	calc_view(mlx);
 	mlx_put_image_to_window(mlx->id, mlx->win, mlx->img, 0, 0);
 	return (0);
 }

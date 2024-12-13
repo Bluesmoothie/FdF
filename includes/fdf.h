@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:22 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/13 20:13:52 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/13 20:25:19 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,7 +169,7 @@ void			zoom_view(t_mlx *mlx, int button);
 //isometric.c
 int				iso_x(int x, int z, t_mlx *mlx);
 int				iso_y(int x, int y, int z, t_mlx *mlx);
-void			iso_view(t_mlx *mlx);
+void			calc_view(t_mlx *mlx);
 
 //map.c
 t_map			*retrieve_map(char *map);

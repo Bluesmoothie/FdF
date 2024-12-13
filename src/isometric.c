@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 16:32:48 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/13 19:41:57 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/13 20:25:02 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	iso_y(int x, int y, int z, t_mlx *mlx)
 	return (((x + z) + (2 * y)) / sqrt(6));
 }
 
-void	iso_view(t_mlx *mlx)
+void	calc_view(t_mlx *mlx)
 {
 	int	i;
 	int	j;
