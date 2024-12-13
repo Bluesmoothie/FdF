@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 16:03:48 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/13 13:53:13 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/13 18:00:49 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,13 @@ void	put_center(t_mlx *mlx)
 void	move_view(t_mlx *mlx, int keycode)
 {
 	if (keycode == A_RIGHT || keycode == KEY_D)
-	{
-		mlx->view.x_pos -= 10;
-		mlx->view.y_pos += 9;
-	}
+		mlx->view.x_pos -= 100;
 	else if (keycode == A_LEFT || keycode == KEY_A)
-	{
-		mlx->view.x_pos += 10;
-		mlx->view.y_pos -= 9;
-	}
+		mlx->view.x_pos += 100;
 	else if (keycode == A_DOWN || keycode == KEY_S)
-		mlx->view.y_pos -= 10;
+		mlx->view.y_pos -= 100;
 	else if (keycode == A_UP || keycode == KEY_W)
-		mlx->view.y_pos += 10;
+		mlx->view.y_pos += 100;
 }
 
 void	turn_view(t_mlx *mlx, int keycode)

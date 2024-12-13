@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 13:34:17 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/13 14:28:13 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/13 18:25:12 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 
 void	draw_curve(t_mlx *mlx, t_curve curve)
 {
-	curve.sx = iso_x(curve.sx, curve.sy, mlx);
-	curve.sy = iso_y(curve.sx, curve.sy, curve.sz, mlx);
-	curve.ex = iso_x(curve.ex, curve.ey, mlx);
-	curve.ey = iso_y(curve.ex, curve.ey, curve.ez, mlx);
+	// curve.sx = iso_x(curve.sx, curve.sy, mlx);
+	// curve.sy = iso_y(curve.sx, curve.sy, curve.sz, mlx);
+	// curve.ex = iso_x(curve.ex, curve.ey, mlx);
+	// curve.ey = iso_y(curve.ex, curve.ey, curve.ez, mlx);
 	center(mlx, &curve);
 	apply_zoom(mlx, &curve);
 	bresenham(mlx, curve);
@@ -27,6 +27,9 @@ void	draw_curve(t_mlx *mlx, t_curve curve)
 
 void	verif_pos(t_mlx *mlx, int x, int y, int z)
 {
+	x += mlx->view.x_offset + mlx->view.x_pos;
+	x = HEIGHT - x;
+	y += mlx->view.y_offset + mlx->view.y_pos;
 	if (x >= 0 && x < HEIGHT && y >= 0 && y < WIDTH)
 		mlx->img_data[x + y * WIDTH] = gradient(z / mlx->view.zoom, mlx->map->max_altitude);
 }

@@ -47,10 +47,9 @@ int	view_calc(void *param)
 
 void	center(t_mlx *mlx, t_curve *curve)
 {
-	curve->sx += (WIDTH - mlx->map->width) / 2;
-	curve->sy += (HEIGHT - mlx->map->height) / 2;
-	curve->ex += (WIDTH - mlx->map->width) / 2;
-	curve->ey += (HEIGHT - mlx->map->height) / 2;
+	(void)curve;
+	mlx->view.x_offset = (WIDTH - mlx->map->width * mlx->view.zoom) / 2;
+	mlx->view.y_offset = (HEIGHT - mlx->map->height * mlx->view.zoom) / 2;
 }
 
 void	apply_zoom(t_mlx *mlx, t_curve *curve)
@@ -61,9 +60,4 @@ void	apply_zoom(t_mlx *mlx, t_curve *curve)
 	curve->ex *= mlx->view.zoom;
 	curve->ey *= mlx->view.zoom;
 	curve->ez *= mlx->view.zoom;
-	if (mlx->view.zoom == 1)
-	{
-		mlx->view.x_offset = (WIDTH - mlx->map->width) / 6;
-		mlx->view.y_offset = - (HEIGHT - mlx->map->height) / 6;
-	}
 }

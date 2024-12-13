@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 16:32:48 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/13 15:16:50 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/13 17:59:27 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,12 @@
 */
 int	iso_x(int x, int y, t_mlx *mlx)
 {
-	return ((int)(((x - y) * cos(mlx->view.angle))
-		+ mlx->view.x_offset + mlx->view.x_pos));
+	return ((int)((x - y) * cos(mlx->view.angle)));
 }
 
 int	iso_y(int x, int y, int z, t_mlx *mlx)
 {
-	return ((int)(((x + y) * sin(mlx->view.angle) - z)
-		+ mlx->view.y_offset + mlx->view.y_pos));
+	return ((int)((x + y) * sin(mlx->view.angle) - z));
 }
 
 void	iso_view(t_mlx *mlx)
@@ -41,9 +39,9 @@ void	iso_view(t_mlx *mlx)
 		j = 0;
 		while (j < mlx->map->width)
 		{
-			if (i > 1)
+			if (i > 0)
 				w_curve(mlx, i, j);
-			if (j > 1)
+			if (j > 0)
 				n_curve(mlx, i, j);
 			j++;
 		}
