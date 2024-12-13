@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:22 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/13 19:58:13 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/13 20:13:52 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,8 @@ enum e_mousecode
 enum e_view_types
 {
 	ISO = 0,
-	AXO = 1
+	AXO = 1,
+	DD = 2
 };
 
 //fdf.c

@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 13:34:17 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/13 19:59:50 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/13 20:15:01 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,4 +91,6 @@ void	apply_view(t_mlx *mlx, t_curve *curve)
 		curve->ex = axo_x(curve->ex, curve->ez, mlx);
 		curve->ey = axo_y(curve->ex, curve->ey, curve->ez, mlx);
 	}
+	else if (mlx->view.view_type == DD)
+		return ;
 }
