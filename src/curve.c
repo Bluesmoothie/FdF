@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 13:34:17 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/13 18:56:59 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/13 19:35:33 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 
 void	draw_curve(t_mlx *mlx, t_curve curve)
 {
-	curve.sx = iso_x(curve.sx, curve.sy, mlx);
+	curve.sx = iso_x(curve.sx, curve.sz, mlx);
 	curve.sy = iso_y(curve.sx, curve.sy, curve.sz, mlx);
-	curve.ex = iso_x(curve.ex, curve.ey, mlx);
+	curve.ex = iso_x(curve.ex, curve.ez, mlx);
 	curve.ey = iso_y(curve.ex, curve.ey, curve.ez, mlx);
 	center(mlx, &curve);
 	apply_zoom(mlx, &curve);

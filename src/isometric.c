@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 16:32:48 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/13 18:49:37 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/13 19:41:57 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,16 @@
 /*
 ** Calculate the isometric x and y coordinate
 */
-int	iso_x(int x, int y, t_mlx *mlx)
+int	iso_x(int x, int z, t_mlx *mlx)
 {
-	return ((int)((x - y) * cos(mlx->view.angle)));
+	(void)mlx;
+	return ((x - z) / sqrt(2));
 }
 
 int	iso_y(int x, int y, int z, t_mlx *mlx)
 {
-	return ((int)((x + y) * sin(mlx->view.angle) - z));
+	(void)mlx;
+	return (((x + z) + (2 * y)) / sqrt(6));
 }
 
 void	iso_view(t_mlx *mlx)

@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:22 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/13 18:50:27 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/13 19:39:35 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # define ENDIAN			1
 # define OFFSET_X		0
 # define OFFSET_Y		0
-# define ANGLE			45
+# define ANGLE			0.52359877
 
 # include <stddef.h>
 # include <stdlib.h>
@@ -153,7 +153,7 @@ void			display_center(t_mlx *mlx);
 void			zoom_view(t_mlx *mlx, int button);
 
 //isometric.c
-int				iso_x(int x, int y, t_mlx *mlx);
+int				iso_x(int x, int z, t_mlx *mlx);
 int				iso_y(int x, int y, int z, t_mlx *mlx);
 void			iso_view(t_mlx *mlx);
 
