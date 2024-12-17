@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:51 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/17 13:30:46 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/17 13:51:09 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,26 +32,13 @@ int	main(int argc, char *argv[])
 */
 void	free_error(t_mlx *mlx, t_map *map, int code)
 {
-	int	i;
-
-	i = -1;
-	if (mlx != NULL)
+	if (mlx)
 	{
-		mlx_destroy_window(mlx->id, mlx->win);
-		if (mlx->img)
-			mlx_destroy_image(mlx->id, mlx->img);
-		free(mlx);
+		close_window(mlx);
+		free_mlx(mlx);
 	}
-	if (map != NULL)
-	{
-		if (map->tab != NULL)
-		{
-			while (map->tab[++i] != NULL)
-				free(map->tab[i]);
-			free(map->tab);
-		}
-		free(map);
-	}
+	if (map)
+		free_map(map);
 	error(code);
 }
 
