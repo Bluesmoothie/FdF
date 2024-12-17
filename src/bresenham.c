@@ -6,47 +6,43 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:28:06 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/17 17:59:16 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/17 18:48:52 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fdf.h>
 
-static	int	max(int a, int b);
+static t_bresenham	init_bresenham(t_curve curve);
+static int			max(int a, int b);
 
 /*
 ** Bresenham's line algorithm
 */
 void bresenham(t_mlx *mlx, t_curve curve)
 {
-    int dx = abs(curve.ex - curve.sx);
-    int dy = abs(curve.ey - curve.sy);
-    int dz = abs(curve.ez - curve.sz);
-    int sx = (curve.sx < curve.ex) ? 1 : -1;
-    int sy = (curve.sy < curve.ey) ? 1 : -1;
-    int sz = (curve.sz < curve.ez) ? 1 : -1;
-    
-    int dm = max(dx, max(dy, dz));
-    int x = curve.sx, y = curve.sy, z = curve.sz;
-    
-    int err1 = dm / 2;
-    int err2 = dm / 2;
-    int err3 = dm / 2;
+	t_bresenham	b;
+	int			x;
+	int			y;
+	int			z;
 
-    while (1)
-    {
-        verif_pos(mlx, x, y, z);
-        if (x == curve.ex && y == curve.ey && z == curve.ez) 
-            break;
+	b = init_bresenham(curve);
+	x = curve.sx;
+	y = curve.sy;
+	z = curve.sz;
+	while (1)
+	{
+		verif_pos(mlx, x, y, z);
+		if (x == curve.ex && y == curve.ey && z == curve.ez) 
+			break;
 
-        err1 -= dx;
-        err2 -= dy;
-        err3 -= dz;
+		err1 -= dx;
+		err2 -= dy;
+		err3 -= dz;
 
-        if (err1 < 0)
-        {
-            err1 += dm;
-            x += sx;
+		if (err1 < 0)
+		{
+			err1 += dm;
+			x += sx;
         }
         if (err2 < 0)
         {
@@ -59,6 +55,32 @@ void bresenham(t_mlx *mlx, t_curve curve)
             z += sz;
         }
     }
+}
+
+static t_bresenham	init_bresenham(t_curve curve)
+{
+	t_bresenham	b;
+
+	b.dx = abs(curve.ex - curve.sx);
+	b.dy = abs(curve.ey - curve.sy);
+	b.dz = abs(curve.ez - curve.sz);
+	if (curve.sx < curve.ex)
+		b.sx = 1;
+	else
+		b.sx = -1;
+	if (curve.sy < curve.ey)
+		b.sy = 1;
+	else
+		b.sy = -1;
+	if (curve.sz < curve.ez)
+		b.sz = 1;
+	else
+		b.sz = -1;
+	b.dm = max(dx, max(dy, dz));
+	b.err1 = dm / 2;
+	b.err2 = dm / 2;
+	b.err3 = dm / 2;
+	return (b);
 }
 
 static	int	max(int a, int b)

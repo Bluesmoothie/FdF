@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:54:44 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/17 18:36:06 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/17 18:41:37 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,19 @@ typedef struct s_curve
 	int				ey;
 	int				ez;
 }	t_curve;
+
+typedef struct s_bresenham
+{
+	int				dx;
+	int				dy;
+	int				dz;
+	int				sx;
+	int				sy;
+	int				sz;
+	int				err1;
+	int				err2;
+	int				err3;
+	int				dm;
+}	t_bresenham;
 
 #endif
