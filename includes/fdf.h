@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:22 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/17 13:09:58 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/17 13:30:54 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,6 @@ enum e_view_types
 };
 
 //fdf.c
-int				quit(t_mlx *mlx);
 void			free_error(t_mlx *mlx, t_map *map, int code);
 void			error(int code);
 
@@ -179,6 +178,9 @@ int				open_map(char *map);
 void			get_map_size(t_map *map, char *map_file);
 int				max_alt(char *line, int max);
 t_map			*map_init(void);
+
+//map_utils.c
+int				calc_map_size(int fd);
 
 //menu.c
 void			display_menu(t_mlx *mlx);

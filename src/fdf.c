@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:51 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/17 12:42:47 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/17 13:30:46 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,6 @@ int	main(int argc, char *argv[])
 	input_wait(mlx);
 	free(mlx);
 	exit(EXIT_SUCCESS);
-}
-
-/*
-** Safely free the mlx and map structures and exit the program
-*/
-int	quit(t_mlx *mlx)
-{
-	mlx_destroy_window(mlx->id, mlx->win);
-	if (mlx->img)
-		mlx_destroy_image(mlx->id, mlx->img);
-	free(mlx);
-	exit(EXIT_SUCCESS);
-	return (0);
 }
 
 /*

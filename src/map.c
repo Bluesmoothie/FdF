@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 19:31:44 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/17 13:18:45 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/17 13:26:09 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,8 @@ void	get_map_size(t_map *map, char *map_file)
 	int		fd;
 	int		i;
 
-	i = 0;
 	fd = open_map(map_file);
-	while (get_next_line(fd) != NULL)
-		i++;
+	i = calc_map_size(fd);
 	if (i == 0)
 		free_error(NULL, map, 0);
 	map->height = i;

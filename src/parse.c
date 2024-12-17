@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 11:45:34 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/12 11:56:28 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/17 13:34:38 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	parse_map_line(t_map *map, int fd, int line)
 		map->tab[line][i] = ft_atoi(line_tab[i]) + 1;
 		if (map->tab[line][i] > map->max_altitude)
 			map->max_altitude = map->tab[line][i];
-		i++;
+		free(line_tab[i++]);
 	}
-	free(line_str);
+	return (free(line_str), free(line_tab));
 }
