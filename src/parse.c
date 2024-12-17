@@ -6,14 +6,15 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 11:45:34 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/17 13:34:38 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/17 17:50:07 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fdf.h>
 
 /*
-** Parse of the map file
+** Parse of a line of the map file
+** verifying it's conformity
 */
 void	parse_map_line(t_map *map, int fd, int line)
 {

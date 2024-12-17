@@ -6,11 +6,13 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 18:23:33 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/17 13:32:05 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/17 17:51:28 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fdf.h>
+
+static int	move_code(int keycode);
 
 /*
 ** Handle the key events
@@ -32,8 +34,10 @@ int	key_hook(int keycode, void *param)
 		mlx->view.view_type = (mlx->view.view_type + 1) % 3;
 	return (0);
 }
-
-int	move_code(int keycode)
+/*
+** Check if the keycode is a move code
+*/
+static int	move_code(int keycode)
 {
 	return (keycode == A_LEFT || keycode == A_RIGHT || keycode == A_UP
 		|| keycode == A_DOWN || keycode == KEY_W || keycode == KEY_A

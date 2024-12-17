@@ -1,27 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isometric.c                                        :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/26 16:32:48 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/17 18:27:44 by ygille           ###   ########.fr       */
+/*   Created: 2024/12/17 18:09:05 by ygille            #+#    #+#             */
+/*   Updated: 2024/12/17 18:11:49 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fdf.h>
 
 /*
-** Isometric projection formulas
+** Safely free the mlx structure
 */
-
-int	iso_x(int x, int z)
+void	free_mlx(t_mlx *mlx)
 {
-	return ((x - z) / sqrt(2));
+	if (mlx)
+		free(mlx);
 }
 
-int	iso_y(int x, int y, int z)
+/*
+** Safely free the map structure
+*/
+void	free_map(t_map *map)
 {
-	return (((x + z) + (2 * y)) / sqrt(6));
+	int	i;
+
+	if (map)
+	{
+		if (map->tab)
+		{
+			i = 0;
+			while (i < map->height)
+			{
+				free(map->tab[i]);
+				i++;
+			}
+			free(map->tab);
+		}
+		free(map);
+	}
 }

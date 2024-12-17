@@ -21,19 +21,22 @@ OBJ_DIR		=	obj/
 
 RM			=	rm -f
 
-SRC_FILES	=	fdf 		\
-				user_input 	\
-				map 		\
-				map_utils 	\
-				menu 		\
-				mlx 		\
-				image 		\
-				image_utils	\
-				parse 		\
-				isometric	\
-				curve		\
-				curve_utils	\
-				axonometric	\
+SRC_FILES	=	fdf 				\
+				axonometric			\
+				bresenham			\
+				curves				\
+				curves_utils		\
+				free				\
+				image 				\
+				image_utils			\
+				isometric			\
+				map 				\
+				map_utils 			\
+				menu 				\
+				mlx 				\
+				parse 				\
+				user_input 			\
+				user_input_utils	\
 
 all:			$(NAME)
 
@@ -49,7 +52,7 @@ $(MLX_A):
 $(OBJ_DIR):
 	mkdir $(OBJ_DIR)
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c includes/fdf.h
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c includes/fdf.h includes/fdf_structs.h includes/fdf_enums.h
 			$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

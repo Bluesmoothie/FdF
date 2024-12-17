@@ -6,12 +6,17 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 12:24:23 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/17 13:18:07 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/17 18:31:21 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fdf.h>
 
+static char	*str_view_mode(int view_type);
+
+/*
+** Display the menu by calling the display functions
+*/
 void	display_menu(t_mlx *mlx)
 {
 	display_controls(mlx);
@@ -20,17 +25,9 @@ void	display_menu(t_mlx *mlx)
 	mlx_string_put(mlx->id, mlx->win, 10, 2040, 0xFFFFFF, "ygille");
 }
 
-char	*str_view_mode(int view_type)
-{
-	if (view_type == ISO)
-		return ("3D Isometric");
-	else if (view_type == AXO)
-		return ("3D Axonometric");
-	else if (view_type == DD)
-		return ("2D");
-	return ("Unknown");
-}
-
+/*
+** Display the controls on the window
+*/
 void	display_controls(t_mlx *mlx)
 {
 	mlx_string_put(mlx->id, mlx->win, 10, 10, 0xFFFFFF, "FDF");
@@ -41,6 +38,9 @@ void	display_controls(t_mlx *mlx)
 	mlx_string_put(mlx->id, mlx->win, 10, 110, 0xFFFFFF, "Exit: ESC");
 }
 
+/*
+** Display the settings on the window
+*/
 void	display_settings(t_mlx *mlx)
 {
 	char	*zoom;
@@ -60,21 +60,25 @@ void	display_settings(t_mlx *mlx)
 	free(zoom_val);
 }
 
+/*
+** Display map info
+*/
 void	display_mapinfo(t_mlx *mlx)
 {
 	char	*height;
 	char	*width;
 	char	*max_alt;
-	char	*height_val;
-	char	*width_val;
-	char	*max_alt_val;
+	char	*val;
 
-	height_val = ft_itoa(mlx->map->height);
-	width_val = ft_itoa(mlx->map->width);
-	max_alt_val = ft_itoa(mlx->map->max_altitude - 1);
-	height = ft_strjoin("Height: ", height_val);
-	width = ft_strjoin("Width: ", width_val);
-	max_alt = ft_strjoin("Max altitude: ", max_alt_val);
+	val = ft_itoa(mlx->map->height);
+	height = ft_strjoin("Height: ", val);
+	free(val);
+	val = ft_itoa(mlx->map->width);
+	width = ft_strjoin("Width: ", val);
+	free(val);
+	val = ft_itoa(mlx->map->max_altitude - 1);
+	max_alt = ft_strjoin("Max altitude: ", val);
+	free(val);
 	if (max_alt == NULL || height == NULL || width == NULL)
 		free_error(mlx, mlx->map, -1);
 	mlx_string_put(mlx->id, mlx->win, 1900, 1980, 0xFFFFFF, "Map info");
@@ -84,7 +88,18 @@ void	display_mapinfo(t_mlx *mlx)
 	free(height);
 	free(width);
 	free(max_alt);
-	free(height_val);
-	free(width_val);
-	free(max_alt_val);
+}
+
+/*
+** Return a string corresponding to the view mode
+*/
+static char	*str_view_mode(int view_type)
+{
+	if (view_type == ISO)
+		return ("3D Isometric");
+	else if (view_type == AXO)
+		return ("3D Axonometric");
+	else if (view_type == DD)
+		return ("2D");
+	return ("Unknown");
 }

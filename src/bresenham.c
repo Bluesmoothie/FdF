@@ -1,36 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   curve.c                                            :+:      :+:    :+:   */
+/*   bresenham.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/11 13:34:17 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/17 13:09:01 by ygille           ###   ########.fr       */
+/*   Created: 2024/12/17 17:28:06 by ygille            #+#    #+#             */
+/*   Updated: 2024/12/17 17:59:16 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fdf.h>
 
-#define max(a,b) ((a) > (b) ? (a) : (b))
+static	int	max(int a, int b);
 
-void	draw_curve(t_mlx *mlx, t_curve curve)
-{
-	apply_view(mlx, &curve);
-	center(mlx, &curve);
-	apply_zoom(mlx, &curve);
-	bresenham(mlx, curve);
-}
-
-void	verif_pos(t_mlx *mlx, int x, int y, int z)
-{
-	x += mlx->view.x_offset + mlx->view.x_pos;
-	x = HEIGHT - x;
-	y += mlx->view.y_offset + mlx->view.y_pos;
-	if (x >= 0 && x < HEIGHT && y >= 0 && y < WIDTH)
-		mlx->img_data[x + y * WIDTH] = gradient(z / mlx->view.zoom, mlx->map->max_altitude);
-}
-
+/*
+** Bresenham's line algorithm
+*/
 void bresenham(t_mlx *mlx, t_curve curve)
 {
     int dx = abs(curve.ex - curve.sx);
@@ -75,22 +61,9 @@ void bresenham(t_mlx *mlx, t_curve curve)
     }
 }
 
-void	apply_view(t_mlx *mlx, t_curve *curve)
+static	int	max(int a, int b)
 {
-	if (mlx->view.view_type == ISO)
-	{
-		curve->sx = iso_x(curve->sx, curve->sz, mlx);
-		curve->sy = iso_y(curve->sx, curve->sy, curve->sz, mlx);
-		curve->ex = iso_x(curve->ex, curve->ez, mlx);
-		curve->ey = iso_y(curve->ex, curve->ey, curve->ez, mlx);
-	}
-	else if (mlx->view.view_type == AXO)
-	{
-		curve->sx = axo_x(curve->sx, curve->sz, mlx);
-		curve->sy = axo_y(curve->sx, curve->sy, curve->sz, mlx);
-		curve->ex = axo_x(curve->ex, curve->ez, mlx);
-		curve->ey = axo_y(curve->ex, curve->ey, curve->ez, mlx);
-	}
-	else if (mlx->view.view_type == DD)
-		return ;
+	if (a > b)
+		return (a);
+	return (b);
 }

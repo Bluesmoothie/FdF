@@ -6,15 +6,18 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 16:03:48 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/13 18:43:37 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/17 17:34:39 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fdf.h>
 
+/*
+** Put a cross in the center of the window
+*/
 void	put_center(t_mlx *mlx)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < HEIGHT - 1)
@@ -30,42 +33,25 @@ void	put_center(t_mlx *mlx)
 	}
 }
 
-void	move_view(t_mlx *mlx, int keycode)
+/*
+** Calculate the pixel color for mlx
+*/
+int	pixel_color(int t, int r, int g, int b)
 {
-	if (keycode == A_RIGHT || keycode == KEY_D)
-		mlx->view.x_pos -= 100;
-	else if (keycode == A_LEFT || keycode == KEY_A)
-		mlx->view.x_pos += 100;
-	else if (keycode == A_DOWN || keycode == KEY_S)
-		mlx->view.y_pos -= 100;
-	else if (keycode == A_UP || keycode == KEY_W)
-		mlx->view.y_pos += 100;
+	return (t << 24 | r << 16 | g << 8 | b);
 }
 
-void	turn_view(t_mlx *mlx, int keycode)
+/*
+** Calculate the pixel gradient
+*/
+int	gradient(int altitude, int max_altitude)
 {
-	if (keycode == KEY_E)
-		mlx->view.angle += 1;
-	else if (keycode == KEY_Q)
-		mlx->view.angle -= 1;
-}
+	int	r;
+	int	g;
+	int	b;
 
-void	zoom_view(t_mlx *mlx, int button)
-{
-	if (button == SCROLL_UP)
-		mlx->view.zoom *= 2;
-	else if (button == SCROLL_DOWN)
-		mlx->view.zoom /= 2;
-	if (mlx->view.zoom < 1)
-		mlx->view.zoom = 1;
-	if (mlx->view.zoom > 256)
-		mlx->view.zoom = 256;
-}
-
-void	display_center(t_mlx *mlx)
-{
-	if (mlx->view.center == 0)
-		mlx->view.center = 1;
-	else
-		mlx->view.center = 0;
+	r = (255 * altitude) / max_altitude;
+	g = 255 - r;
+	b = 255 - r;
+	return (pixel_color(0, r, g, b));
 }

@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:51 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/17 13:51:09 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/17 17:41:21 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int argc, char *argv[])
 
 /*
 ** Safely free the mlx and map structures and exit the program
-** if an error occurs
+** passing error code to error function
 */
 void	free_error(t_mlx *mlx, t_map *map, int code)
 {
@@ -52,9 +52,37 @@ void	error(int code)
 		errno = code;
 	if (errno > 0)
 		perror("");
-	else if (errno == -1)
+	else if (errno == USAGE)
 		ft_putstr_fd("Usage : ./fd map\n", 2);
-	else if (errno == -2)
+	else if (errno == MAP)
 		ft_putstr_fd("Map error\n", 2);
 	exit(EXIT_FAILURE);
+}
+
+/*
+** Initialize the mlx structure with default values
+*/
+t_mlx	*init_struct(void)
+{
+	t_mlx	*mlx;
+
+	mlx = malloc(sizeof(t_mlx));
+	if (mlx == NULL)
+		error(0);
+	mlx->id = NULL;
+	mlx->win = NULL;
+	mlx->img = NULL;
+	mlx->img_data = NULL;
+	mlx->depth = DEPTH;
+	mlx->size_line = WIDTH * 4;
+	mlx->endian = ENDIAN;
+	mlx->view.x_offset = OFFSET_X;
+	mlx->view.y_offset = OFFSET_Y;
+	mlx->view.center = 0;
+	mlx->view.angle = ANGLE;
+	mlx->view.zoom = 1;
+	mlx->view.x_pos = 0;
+	mlx->view.y_pos = 0;
+	mlx->view.view_type = ISO;
+	return (mlx);
 }
