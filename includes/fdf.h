@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:22 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/17 12:40:27 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/17 13:09:58 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,9 @@ enum e_keycode
 	KEY_A = 97,
 	KEY_S = 115,
 	KEY_D = 100,
-	KEY_V = 118
+	KEY_V = 118,
+	KEY_T = 116,
+	KEY_G = 103
 };
 
 enum e_mousecode
