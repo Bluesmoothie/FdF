@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:22 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/13 20:25:19 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/17 12:40:27 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # define ENDIAN			1
 # define OFFSET_X		0
 # define OFFSET_Y		0
-# define ANGLE			0.52359877
+# define ANGLE			0.52359877	
 
 # include <stddef.h>
 # include <stdlib.h>
@@ -177,6 +177,13 @@ int				open_map(char *map);
 void			get_map_size(t_map *map, char *map_file);
 int				max_alt(char *line, int max);
 t_map			*map_init(void);
+
+//menu.c
+void			display_menu(t_mlx *mlx);
+char			*str_view_mode(int view_type);
+void			display_controls(t_mlx *mlx);
+void			display_settings(t_mlx *mlx);
+void			display_mapinfo(t_mlx *mlx);
 
 //mlx.c
 t_mlx			*open_window(char *title, t_mlx *mlx);

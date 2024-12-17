@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 02:23:54 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/14 02:24:03 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/17 12:26:09 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int	view_calc(void *param)
 	mlx = (t_mlx *) param;
 	calc_view(mlx);
 	mlx_put_image_to_window(mlx->id, mlx->win, mlx->img, 0, 0);
+	display_menu(mlx);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 19:31:44 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/09 16:37:57 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/17 12:43:07 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ t_map	*retrieve_map(char *map_file)
 
 	map = map_init();
 	get_map_size(map, map_file);
-	ft_printf("Map height = %u\nMap  width = %u\nMax    alt = %u\n", map->height, map->width, map->max_altitude);
 	return (map);
 }
 

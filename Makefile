@@ -24,6 +24,7 @@ RM			=	rm -f
 SRC_FILES	=	fdf 		\
 				user_input 	\
 				map 		\
+				menu 		\
 				mlx 		\
 				image 		\
 				image_utils	\
