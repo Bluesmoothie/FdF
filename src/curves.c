@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 16:20:59 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/17 17:32:43 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/17 18:37:10 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	n_curve(t_mlx *mlx, int sx, int sy)
 void	w_curve(t_mlx *mlx, int sx, int sy)
 {
 	t_curve	curve;
-
 
 	curve.sx = sx;
 	curve.sy = sy;

@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 18:23:33 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/17 17:51:28 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/17 18:36:55 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	key_hook(int keycode, void *param)
 
 	mlx = (t_mlx *) param;
 	if (keycode == ESC)
-		free_error(mlx, mlx->map,0);
+		free_error(mlx, mlx->map, 0);
 	else if (move_code(keycode))
 		move_view(mlx, keycode);
 	else if (keycode == KEY_X)
@@ -34,6 +34,7 @@ int	key_hook(int keycode, void *param)
 		mlx->view.view_type = (mlx->view.view_type + 1) % 3;
 	return (0);
 }
+
 /*
 ** Check if the keycode is a move code
 */

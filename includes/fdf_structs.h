@@ -6,12 +6,12 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:54:44 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/17 18:08:53 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/17 18:36:06 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCTURES_H
-# define STRUCTURES_H
+#ifndef FDF_STRUCTS_H
+# define FDF_STRUCTS_H
 
 typedef struct s_view_param
 {
