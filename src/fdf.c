@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:51 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/17 17:41:21 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/18 17:56:38 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,11 @@ void	error(int code)
 {
 	if (code)
 		errno = code;
-	if (errno > 0)
+	if (code > 0)
 		perror("");
-	else if (errno == USAGE)
+	else if (code == USAGE)
 		ft_putstr_fd("Usage : ./fd map\n", 2);
-	else if (errno == MAP)
+	else if (code == MAP)
 		ft_putstr_fd("Map error\n", 2);
 	exit(EXIT_FAILURE);
 }
