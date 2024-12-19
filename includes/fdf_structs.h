@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:54:44 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/17 18:41:37 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/19 11:55:27 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,12 @@ typedef struct s_bresenham
 	int				err3;
 	int				dm;
 }	t_bresenham;
+
+typedef struct s_mapinfo
+{
+	char			*height;
+	char			*width;
+	char			*max_alt;
+}	t_mapinfo;
 
 #endif

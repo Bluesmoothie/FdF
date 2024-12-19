@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:22 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/19 11:06:26 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/19 12:02:12 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,11 @@ void		display_menu(t_mlx *mlx);
 void		display_controls(t_mlx *mlx);
 void		display_settings(t_mlx *mlx);
 void		display_mapinfo(t_mlx *mlx);
+
+//menu_utils.c
+char		*str_view_mode(int view_type);
+t_mapinfo	get_mapinfo(t_mlx *mlx);
+void		free_three(char *s1, char *s2, char *s3);
 
 //mlx.c
 t_mlx		*open_window(char *title, t_mlx *mlx);

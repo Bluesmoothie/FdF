@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:33:27 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/17 17:34:04 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/19 11:27:56 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,10 @@ void	turn_view(t_mlx *mlx, int keycode)
 		mlx->view.angle += 1;
 	else if (keycode == KEY_Q)
 		mlx->view.angle -= 1;
+	if (mlx->view.angle < 1)
+		mlx->view.angle = 4;
+	if (mlx->view.angle > 4)
+		mlx->view.angle = 1;
 }
 
 void	zoom_view(t_mlx *mlx, int button)

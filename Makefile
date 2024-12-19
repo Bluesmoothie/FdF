@@ -33,6 +33,7 @@ SRC_FILES	=	fdf 				\
 				map 				\
 				map_utils 			\
 				menu 				\
+				menu_utils 			\
 				mlx 				\
 				parse 				\
 				user_input 			\
