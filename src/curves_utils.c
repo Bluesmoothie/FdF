@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 13:34:17 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/17 18:37:45 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/19 11:17:36 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 */
 void	draw_curve(t_mlx *mlx, t_curve curve)
 {
+	apply_zoom(mlx, &curve);
 	apply_view(mlx, &curve);
 	center(mlx);
-	apply_zoom(mlx, &curve);
 	bresenham(mlx, curve);
 }
 
