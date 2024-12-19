@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:57:07 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/17 17:57:51 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/19 12:58:17 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,14 @@ enum e_error_codes
 	NO_ERROR = 0,
 	USAGE = -1,
 	MAP = -2
+};
+
+enum e_angles
+{
+	ANG_UP = 1,
+	ANG_DOWN = 2,
+	ANG_LEFT = 3,
+	ANG_RIGHT = 4
 };
 
 #endif

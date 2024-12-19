@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:22 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/19 12:02:12 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/19 12:57:25 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # define ENDIAN			1
 # define OFFSET_X		0
 # define OFFSET_Y		0
-# define ANGLE			0.52359877	
 
 # include <stddef.h>
 # include <stdlib.h>
@@ -61,6 +60,9 @@ void		verif_pos(t_mlx *mlx, int x, int y, int z);
 void		apply_view(t_mlx *mlx, t_curve *curve);
 void		center(t_mlx *mlx);
 void		apply_zoom(t_mlx *mlx, t_curve *curve);
+
+//curves_utils_2.c
+void		apply_angle(int *x, int *y, int angle);
 
 //free.c
 void		free_mlx(t_mlx *mlx);

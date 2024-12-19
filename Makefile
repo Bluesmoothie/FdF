@@ -26,6 +26,7 @@ SRC_FILES	=	fdf 				\
 				bresenham			\
 				curves				\
 				curves_utils		\
+				curves_utils_2		\
 				free				\
 				image 				\
 				image_utils			\

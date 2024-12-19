@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:51 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/18 17:56:38 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/19 12:58:09 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ t_mlx	*init_struct(void)
 	mlx->view.x_offset = OFFSET_X;
 	mlx->view.y_offset = OFFSET_Y;
 	mlx->view.center = 0;
-	mlx->view.angle = ANGLE;
+	mlx->view.angle = ANG_UP;
 	mlx->view.zoom = 1;
 	mlx->view.x_pos = 0;
 	mlx->view.y_pos = 0;

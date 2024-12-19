@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 13:34:17 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/19 11:17:36 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/19 12:55:22 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ void	draw_curve(t_mlx *mlx, t_curve curve)
 void	verif_pos(t_mlx *mlx, int x, int y, int z)
 {
 	x += mlx->view.x_offset + mlx->view.x_pos;
-	x = HEIGHT - x;
 	y += mlx->view.y_offset + mlx->view.y_pos;
+	apply_angle(&x, &y, mlx->view.angle);
 	if (x >= 0 && x < HEIGHT && y >= 0 && y < WIDTH)
 		mlx->img_data[x + y * WIDTH]
 			= gradient(z / mlx->view.zoom, mlx->map->max_altitude);
