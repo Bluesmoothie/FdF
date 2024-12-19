@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 11:48:21 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/19 12:03:38 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/19 13:12:48 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ t_mapinfo	get_mapinfo(t_mlx *mlx)
 	}
 	return (map);
 }
+
 /*
 ** Free three strings securely
 */
