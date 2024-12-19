@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 02:23:54 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/17 17:52:41 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/19 11:09:55 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,30 @@
 */
 int	frame_calc(void *param)
 {
-	t_mlx	*mlx;
+	t_mlx				*mlx;
+	static t_view_param	old_view = {0};
 
 	mlx = (t_mlx *) param;
-	img_compute(mlx);
-	mlx_put_image_to_window(mlx->id, mlx->win, mlx->img, 0, 0);
-	display_menu(mlx);
+	if (view_changed(mlx->view, old_view))
+	{
+		img_compute(mlx);
+		mlx_put_image_to_window(mlx->id, mlx->win, mlx->img, 0, 0);
+		display_menu(mlx);
+		old_view = mlx->view;
+	}
 	return (0);
+}
+
+/*
+** Check if the view parameters have changed
+*/
+int	view_changed(t_view_param view, t_view_param old_view)
+{
+	return (view.zoom != old_view.zoom || view.x_offset != old_view.x_offset
+		|| view.y_offset != old_view.y_offset || view.center != old_view.center
+		|| view.angle != old_view.angle || view.x_pos != old_view.x_pos
+		|| view.y_pos != old_view.y_pos
+		|| view.view_type != old_view.view_type);
 }
 
 /*

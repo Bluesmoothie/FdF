@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:22 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/17 18:27:59 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/19 11:06:26 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void		free_map(t_map *map);
 
 //image.c
 int			frame_calc(void *param);
+int			view_changed(t_view_param view, t_view_param old_view);
 void		img_compute(t_mlx *mlx);
 
 //image_utils.c
