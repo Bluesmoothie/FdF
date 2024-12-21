@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 19:36:09 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/19 14:42:52 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/21 14:26:46 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,7 @@ void	close_window(t_mlx *mlx)
 			mlx_destroy_image(mlx->id, mlx->img);
 		if (mlx->win)
 			mlx_destroy_window(mlx->id, mlx->win);
+		if (mlx->id)
+			mlx_destroy_display(mlx->id);
 	}
 }

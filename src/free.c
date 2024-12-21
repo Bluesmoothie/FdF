@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 18:09:05 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/19 12:09:59 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/21 14:36:06 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,11 @@
 void	free_mlx(t_mlx *mlx)
 {
 	if (mlx)
+	{
+		if (mlx->id)
+			free(mlx->id);
 		free(mlx);
+	}
 }
 
 /*
