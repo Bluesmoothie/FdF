@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 19:31:44 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/17 17:42:22 by ygille           ###   ########.fr       */
+/*   Updated: 2024/12/22 15:17:26 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,6 @@ void	get_map(t_map *map, char *map_file)
 		parse_map_line(map, fd, i);
 		i++;
 	}
+	get_next_line(fd);
 	return ;
 }
