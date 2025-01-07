@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:22 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/19 12:57:25 by ygille           ###   ########.fr       */
+/*   Updated: 2025/01/07 13:43:11 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ t_map		*retrieve_map(char *map);
 void		get_map(t_map *map, char *map_file);
 
 //map_utils.c
-int			open_map(char *map);
+int			open_map(char *map, t_map *map_struct);
 t_map		*map_init(void);
 int			calc_map_size(int fd);
 int			max_alt(char *line, int max);

@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 13:25:09 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/17 17:44:03 by ygille           ###   ########.fr       */
+/*   Updated: 2025/01/07 13:45:30 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 /*
 ** Open the map file
 */
-int	open_map(char *map)
+int	open_map(char *map, t_map *map_struct)
 {
 	int	fd;
 
 	fd = open(map, O_RDONLY);
 	if (fd == -1)
-		error(MAP);
+		free_error(NULL, map_struct, MAP);
 	return (fd);
 }
 
@@ -35,6 +35,7 @@ t_map	*map_init(void)
 	map = malloc(sizeof(t_map));
 	if (map == NULL)
 		error(0);
+	map->tab = NULL;
 	map->height = 0;
 	map->width = 0;
 	map->max_altitude = 0;

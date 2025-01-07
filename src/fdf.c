@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:51 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/19 12:58:09 by ygille           ###   ########.fr       */
+/*   Updated: 2025/01/07 13:46:24 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 int	main(int argc, char *argv[])
 {
 	t_mlx	*mlx;
+	t_map	*map;
 
 	if (argc != 2)
 		error(-1);
+	map = retrieve_map(argv[1]);
 	mlx = init_struct();
-	mlx->map = retrieve_map(argv[1]);
+	mlx->map = map;
 	mlx = open_window(argv[1], mlx);
 	input_wait(mlx);
 	free(mlx);
