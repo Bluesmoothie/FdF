@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:51 by ygille            #+#    #+#             */
-/*   Updated: 2025/01/07 13:46:24 by ygille           ###   ########.fr       */
+/*   Updated: 2025/01/07 13:54:34 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@ int	main(int argc, char *argv[])
 	map = retrieve_map(argv[1]);
 	mlx = init_struct();
 	mlx->map = map;
+	if (mlx->map->height > mlx->map->width)
+		mlx->view.zoom = HEIGHT / mlx->map->height / 2;
+	else
+		mlx->view.zoom = WIDTH / mlx->map->width / 2;
 	mlx = open_window(argv[1], mlx);
 	input_wait(mlx);
 	free(mlx);
