@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:22 by ygille            #+#    #+#             */
-/*   Updated: 2025/01/07 13:43:11 by ygille           ###   ########.fr       */
+/*   Updated: 2025/01/07 15:10:52 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # define ENDIAN			1
 # define OFFSET_X		0
 # define OFFSET_Y		0
+# define MOVE_SIZE		100
 
 # include <stddef.h>
 # include <stdlib.h>
