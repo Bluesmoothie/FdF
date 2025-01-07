@@ -1,4 +1,4 @@
-.PHONY:			all clean fclean re
+.PHONY:			all clean fclean re norme
 
 CC			=	gcc
 INCLUDE 	=	-I includes -I libft/includes -I minilibx-linux
@@ -67,3 +67,6 @@ fclean:			clean
 				@$(RM) $(NAME)
 
 re:				fclean all
+
+norme:
+				norminette $(SRC_DIR) includes/
