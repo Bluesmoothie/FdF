@@ -1,4 +1,4 @@
-.PHONY:			all clean fclean re norme
+.PHONY:			all clean fclean re norme FORCE
 
 CC			=	gcc
 INCLUDE 	=	-I includes -I libft/includes -I minilibx-linux
@@ -45,11 +45,13 @@ all:			$(NAME)
 $(NAME):		$(OBJ_DIR) $(OBJ) $(LIBFT_A) $(MLX_A) $(INC)
 				$(CC) $(CFLAGS) $(OBJ) -L$(LIBFT) -lft_ex -L$(MLX) -lmlx -lm -o $(NAME) -lXext -lX11
 
-$(LIBFT_A):
+$(LIBFT_A):	FORCE
 				@$(MAKE) -s -C $(LIBFT)
 
-$(MLX_A):
+$(MLX_A): FORCE
 				@$(MAKE) -s -C $(MLX)
+
+FORCE:
 
 $(OBJ_DIR):
 	mkdir $(OBJ_DIR)
