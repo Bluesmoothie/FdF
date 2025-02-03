@@ -2,7 +2,7 @@
 
 CC			=	gcc
 INCLUDE 	=	-I includes -I libft/includes -I minilibx-linux
-CFLAGS		=	-Wall -Wextra -Werror $(INCLUDE)
+CFLAGS		=	-Wall -Wextra -Werror $(INCLUDE) -no-pie
 
 NAME		=	fdf
 
