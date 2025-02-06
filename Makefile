@@ -1,13 +1,13 @@
 .PHONY:			all clean fclean re norme FORCE
 
 CC			=	gcc
-INCLUDE 	=	-I includes -I libft/includes -I minilibx-linux
+INCLUDE 	=	-I includes -I $(LIBFT)includes -I $(MLX)
 CFLAGS		=	-Wall -Wextra -Werror $(INCLUDE) -no-pie
 
 NAME		=	fdf
 
 LIBFT		=	libft/
-MLX			=	minilibx-linux/
+MLX			=	mlx/
 
 LIBFT_A		=	$(addprefix $(LIBFT), libft_ex.a)
 MLX_A		=	$(addprefix $(MLX), libmlx.a)
