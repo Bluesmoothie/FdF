@@ -6,11 +6,11 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 18:09:05 by ygille            #+#    #+#             */
-/*   Updated: 2025/01/07 13:45:16 by ygille           ###   ########.fr       */
+/*   Updated: 2025/02/07 20:20:52 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fdf.h>
+#include "fdf.h"
 
 /*
 ** Safely free the mlx structure

@@ -6,11 +6,11 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 11:48:21 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/19 13:12:48 by ygille           ###   ########.fr       */
+/*   Updated: 2025/02/07 20:21:13 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fdf.h>
+#include "fdf.h"
 
 /*
 ** Return a string corresponding to the view mode

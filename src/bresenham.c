@@ -6,11 +6,11 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:28:06 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/18 13:51:07 by ygille           ###   ########.fr       */
+/*   Updated: 2025/02/07 20:20:41 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fdf.h>
+#include "fdf.h"
 
 static void			b_calc(int *err, int dm, int *a, int sa);
 static t_bresenham	init_bresenham(t_curve curve);

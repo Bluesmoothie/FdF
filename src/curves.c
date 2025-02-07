@@ -6,11 +6,11 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 16:20:59 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/17 18:37:10 by ygille           ###   ########.fr       */
+/*   Updated: 2025/02/07 20:20:47 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fdf.h>
+#include "fdf.h"
 
 /*
 ** Draw a curve from the current point to the next point

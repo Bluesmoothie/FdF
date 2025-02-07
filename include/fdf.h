@@ -6,7 +6,7 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:46:22 by ygille            #+#    #+#             */
-/*   Updated: 2025/01/07 15:10:52 by ygille           ###   ########.fr       */
+/*   Updated: 2025/02/07 20:19:20 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@
 # include "ft_printf.h"
 
 # include "mlx.h"
+
 # include "fdf_structs.h"
 # include "fdf_enums.h"
 

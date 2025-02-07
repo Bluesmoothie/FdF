@@ -6,11 +6,11 @@
 /*   By: ygille <ygille@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 02:23:54 by ygille            #+#    #+#             */
-/*   Updated: 2024/12/19 11:09:55 by ygille           ###   ########.fr       */
+/*   Updated: 2025/02/07 20:20:57 by ygille           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fdf.h>
+#include "fdf.h"
 
 /*
 ** Compute one frame and display it
